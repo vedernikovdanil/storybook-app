@@ -1,0 +1,36 @@
+@use "sass:map";
+@use "./functions.scss" as *;
+
+$primary: lch-create(
+  $l: 60%,
+  $c: 50%,
+  $h: 255deg,
+);
+$theme-colors: (
+  primary: $primary,
+  secondary: lch-from($primary, $c: 0%),
+  info: lch-from($primary, $h: 200deg),
+  success: lch-from($primary, $h: 140deg),
+  danger: lch-from($primary, $h: 30deg),
+  warning: lch-from($primary, $h: 85deg, $l: 85%),
+  light: lch-create(100%),
+  dark: lch-create(25%),
+);
+$spacers: (
+  auto: auto,
+  0: 0,
+  1: 0.25rem,
+  2: 0.5rem,
+  3: 1rem,
+  4: 1.5rem,
+  5: 3rem,
+);
+$percents: (
+  0: 0,
+  25: 25,
+  50: 50,
+  75: 75,
+  100: 100,
+);
+$breakpoint: 768px;
+$media-breakpoint: 'width <= 768px';

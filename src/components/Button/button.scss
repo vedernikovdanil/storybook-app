@@ -1,0 +1,26 @@
+@use "../../scss/config.scss" as *;
+
+.btn {
+  @extend %clickable;
+
+  @include shadowed-focus(--bg-clr-half);
+
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border: 3px solid var(--bg-clr-dark);
+  border-radius: var(--border-radius);
+
+  @at-root {
+    @each $color-name, $color in $theme-colors {
+      .bg-#{$color-name} &.bg-#{$color-name} {
+        $half: if(
+          $color-name == light,
+          var(--#{$color-name}-darker),
+          var(--#{$color-name}-light)
+        );
+
+        --bg-clr-half: #{$half};
+      }
+    }
+  }
+}

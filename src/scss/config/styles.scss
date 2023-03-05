@@ -1,0 +1,186 @@
+@use "sass:map";
+@use "sass:list";
+@use "./functions.scss" as *;
+@use "./variables.scss" as *;
+
+:root {
+  --border-radius: 0.5rem;
+
+  @each $name, $color in $theme-colors {
+    @include lch-palette-init(--#{$name}, $color...);
+  }
+
+  @extend %bg-light;
+
+  @include lch-palette-init(--link-clr, $l: 55%, $c: 50%, $h: 250deg, $mul: 2);
+}
+
+@include describe('display') {
+  @each $value in (none, block, flex, grid) {
+    .d-#{$value} {
+      display: $value !important;
+    }
+
+    @if $value != none {
+      .d-inline-#{$value} {
+        display: inline-#{$value} !important;
+      }
+    }
+  }
+}
+
+@include describe('flex') {
+  .flex {
+    &-column {
+      flex-direction: column !important;
+    }
+
+    &-wrap {
+      flex-wrap: wrap !important;
+    }
+
+    &-column-reverse {
+      flex-direction: column-reverse !important;
+    }
+
+    &-wrap-reverse {
+      flex-wrap: wrap-reverse !important;
+    }
+  }
+
+  @each $property in (align-items, align-content, justify-content) {
+    @each $value in (center, start, end) {
+      .#{$property}-#{$value} {
+        #{$property}: $value !important;
+      }
+    }
+  }
+
+  @each $property in (align-content, justify-content) {
+    .#{$property} {
+      $values: if($property == justify-content, 'space-evenly', 'stretch');
+      $values: list.join((space-between, space-around, space-evenly), $values);
+
+      @each $value in $values {
+        &-#{$value} {
+          #{$property}: $value !important;
+        }
+      }
+    }
+  }
+}
+
+@include describe('gap') {
+  @each $space-class, $space in $spacers {
+    .gap-#{$space-class} {
+      gap: $space !important;
+    }
+  }
+}
+
+@include describe('width/height') {
+  @each $class, $prop in (w: width, h: height) {
+    .#{$class}-fit {
+      #{$prop}: fit-content !important;
+    }
+
+    @each $space-class, $space in $percents {
+      @each $pt-class, $pt in ('vh': 'vh', 'vw': 'vw', '': '%') {
+        .#{$class}-#{$space-class}#{$pt-class} {
+          #{$prop}: #{$space}#{$pt} !important;
+        }
+      }
+    }
+  }
+}
+
+@include describe('margin/padding') {
+  @each $space-class, $space in $spacers {
+    @each $class, $prop in (m: margin, p: padding) {
+      .#{$class} {
+        &-#{$space-class} {
+          #{$prop}: $space !important;
+        }
+
+        &x-#{$space-class} {
+          #{$prop}-left: $space !important;
+          #{$prop}-right: $space !important;
+        }
+
+        &y-#{$space-class} {
+          #{$prop}-top: $space !important;
+          #{$prop}-bottom: $space !important;
+        }
+
+        @each $side_class, $side in (l: left, r: right, t: top, b: bottom) {
+          &#{$side_class}-#{$space-class} {
+            #{$prop}-#{$side}: $space !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+.text {
+  &-uppercase::first-letter {
+    text-transform: capitalize;
+  }
+}
+
+.container {
+  margin: auto;
+  padding: 0 3rem;
+
+  @media ($media-breakpoint) {
+    padding: 0 1rem;
+  }
+
+  @media (width >= 1200px) {
+    max-width: 1200px;
+  }
+}
+
+@each $color-name, $color in $theme-colors {
+  .bg-#{$color-name},
+  %bg-#{$color-name} {
+    $text: if(map.get($color, l) <= 60%, --light, --dark);
+
+    @include palette_replace(--text-clr, $text);
+    @include palette_replace(--bg-clr, --#{$color-name});
+
+    color: var(--text-clr);
+    background-color: var(--bg-clr);
+  }
+}
+
+%clickable {
+  &:hover {
+    background-color: var(--bg-clr-light);
+  }
+
+  &:active {
+    background-color: var(--bg-clr-dark);
+  }
+}
+
+%transition-base {
+  transition-timing-function: ease;
+  transition-duration: 350ms;
+}
+
+%emoji {
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+
+  &::before {
+    cursor: pointer;
+    content: var(--emoji, '😀');
+
+    display: block;
+
+    font-size: 2rem;
+    line-height: 1;
+  }
+}

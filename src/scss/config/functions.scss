@@ -1,0 +1,120 @@
+// stylelint-disable comment-empty-line-before
+@use "sass:math";
+@use "sass:string";
+@use "sass:map";
+
+@function lch-create($l: 0%, $c: 0%, $h: 0deg, $a: 100%) {
+  @return (l: $l, c: $c, h: $h, a: $a);
+}
+
+@function lch-from(
+  $base-lch,
+  $l: map.get($base-lch, l),
+  $c: map.get($base-lch, c),
+  $h: map.get($base-lch, h),
+  $a: map.get($base-lch, a)
+) {
+  @return lch-create($l, $c, $h, $a);
+}
+
+@mixin lch-init($name, $l, $c, $h, $a: 100%) {
+  #{$name}: oklch($l $c $h #{'/'} $a);
+}
+
+@mixin lch-from(
+  $name,
+  $base-lch,
+  $l: map.get($base-lch, l),
+  $c: map.get($base-lch, c),
+  $h: map.get($base-lch, h),
+  $a: map.get($base-lch, a)
+) {
+  @include lch-init($name, $l, $c, $h, $a);
+}
+
+@mixin lch-scale($name, $base-lch, $l: 0%, $c: 0%, $h: 0deg, $a: 0%) {
+  $l: map.get($base-lch, l) + $l;
+  $c: map.get($base-lch, c) + $c;
+  $h: map.get($base-lch, h) + $h;
+  $a: map.get($base-lch, a) + $a;
+
+  @include lch-init($name, $l, $c, $h, $a);
+}
+
+@mixin lch-palette-init($name, $l: 0%, $c: 0%, $h: 0deg, $a: 100%, $mul: 1) {
+  $lch: lch-create($l, $c, $h, $a);
+
+  /* #{$name} */
+  @include lch-init($name, $lch...);
+  @include lch-scale(#{$name}-light, $lch, $l: 5% * $mul);
+  @include lch-scale(#{$name}-lighter, $lch, $l: 10% * $mul);
+  @include lch-scale(#{$name}-dark, $lch, $l: -5% * $mul);
+  @include lch-scale(#{$name}-darker, $lch, $l: -10% * $mul);
+  @include lch-init(#{$name}-half, $l, $c, $h, $a: calc($a / 2));
+}
+
+@mixin lch-palette-from(
+  $name,
+  $base-lch,
+  $l: map.get($base-lch, l),
+  $c: map.get($base-lch, c),
+  $h: map.get($base-lch, h),
+  $a: map.get($base-lch, a)
+) {
+  @include lch-palette-init($name, $l, $c, $h, $a);
+}
+
+@mixin palette-replace($from, $to) {
+  /* #{$from} -> #{$to} */
+  #{$from}: var($to);
+  #{$from}-light: var(#{$to}-light);
+  #{$from}-lighter: var(#{$to}-lighter);
+  #{$from}-dark: var(#{$to}-dark);
+  #{$from}-darker: var(#{$to}-darker);
+  #{$from}-half: var(#{$to}-half);
+}
+
+@mixin shadowed-focus($color-var) {
+  transition: box-shadow 0.25s ease;
+
+  &:focus {
+    box-shadow: 0 0 0 5px var($color-var);
+  }
+}
+
+@mixin print-title($title, $top: true, $bottom: true) {
+  $width: 20;
+  $title-len: string.length($title);
+  $diff-width: math.abs(math.floor(calc(($width - $title-len) / 2)));
+  $space-str: '';
+  $line-str: '';
+  $half-str: '';
+  $width: calc(($diff-width * 2) + $title-len + 2);
+
+  @for $i from 1 through $width {
+    $space-str: '#{$space-str} ';
+    $line-str: '#{$line-str}=';
+  }
+
+  @for $i from 1 through $diff-width {
+    $half-str: '#{$half-str}=';
+  }
+
+  /* #{$space-str} */
+  @if $top {
+    /* #{$line-str} */
+  }
+  /* #{$half-str} #{$title} #{$half-str} */
+  @if $bottom {
+    /* #{$line-str} */
+  }
+  /* #{$space-str} */
+}
+
+@mixin describe($title) {
+  @include print-title($title, $bottom: false);
+
+  @content;
+
+  @include print-title($title, $top: false);
+}

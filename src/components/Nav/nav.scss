@@ -1,0 +1,46 @@
+@use "/src/scss/config.scss" as *;
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  margin: 0;
+
+  list-style: none;
+
+  &-link {
+    display: block;
+
+    padding: 0.5rem 1rem;
+
+    color: var(--text-clr);
+    text-decoration: none;
+
+    border-radius: var(--border-radius);
+
+    &.active {
+      background-color: var(--bg-clr-dark);
+
+      @at-root .nav-tabs & {
+        background-color: var(--bg-clr-darker);
+      }
+    }
+
+    &:hover {
+      background-color: var(--bg-clr-darker);
+
+      &[aria-disabled='true'] {
+        background-color: var(--bg-clr-dark);
+      }
+    }
+
+    @at-root {
+      .nav-tabs,
+      & {
+        background-color: var(--bg-clr-dark);
+        border-radius: var(--border-radius);
+      }
+    }
+  }
+}
