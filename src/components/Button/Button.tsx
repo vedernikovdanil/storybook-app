@@ -1,15 +1,24 @@
-import React from 'react';
-import cn from 'classnames';
+import { type SizeType, type VariantType } from '../../types';
 import './button.scss';
-import { VariantTypes } from '../../types';
+import cn from 'classnames';
+import React from 'react';
 
 export interface ButtonProps extends React.ComponentProps<'button'> {
-  variant?: VariantTypes;
+  variant?: VariantType;
+  size?: SizeType;
 }
 
-function Button({ variant = 'primary', className, ...props }: ButtonProps) {
+function Button({ variant, size, className, ...props }: ButtonProps) {
   return (
-    <button className={cn('btn', `bg-${variant}`, className)} {...props} />
+    <button
+      className={cn(
+        'btn',
+        size && `btn-${size}`,
+        variant && `bg-${variant}`,
+        className
+      )}
+      {...props}
+    />
   );
 }
 

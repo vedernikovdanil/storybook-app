@@ -1,5 +1,5 @@
-@use "sass:map";
-@use "./functions.scss" as *;
+@use 'sass:map';
+@use './functions.scss' as *;
 
 $primary: lch-create(
   $l: 60%,

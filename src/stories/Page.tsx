@@ -3,9 +3,9 @@ import React from 'react';
 import { Header } from './Header';
 import './page.scss';
 
-type User = {
+interface User {
   name: string;
-};
+}
 
 export const Page: React.VFC = () => {
   const [user, setUser] = React.useState<User>();
@@ -14,9 +14,15 @@ export const Page: React.VFC = () => {
     <article>
       <Header
         user={user}
-        onLogin={() => setUser({ name: 'Jane Doe' })}
-        onLogout={() => setUser(undefined)}
-        onCreateAccount={() => setUser({ name: 'Jane Doe' })}
+        onLogin={() => {
+          setUser({ name: 'Jane Doe' });
+        }}
+        onLogout={() => {
+          setUser(undefined);
+        }}
+        onCreateAccount={() => {
+          setUser({ name: 'Jane Doe' });
+        }}
       />
 
       <section>
@@ -40,7 +46,7 @@ export const Page: React.VFC = () => {
         <ul>
           <li>
             Use a higher-level connected component. Storybook helps you compose
-            such data from the "args" of child component stories
+            such data from the &qt;args&qt; of child component stories
           </li>
           <li>
             Assemble data in the page component from your services. You can mock

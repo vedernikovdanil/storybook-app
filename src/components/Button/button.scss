@@ -1,4 +1,4 @@
-@use "../../scss/config.scss" as *;
+@use '../../scss/config.scss' as *;
 
 .btn {
   @extend %clickable;
@@ -10,17 +10,19 @@
   border: 3px solid var(--bg-clr-dark);
   border-radius: var(--border-radius);
 
-  @at-root {
-    @each $color-name, $color in $theme-colors {
-      .bg-#{$color-name} &.bg-#{$color-name} {
-        $half: if(
-          $color-name == light,
-          var(--#{$color-name}-darker),
-          var(--#{$color-name}-light)
-        );
+  &-small {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.7rem;
+  }
 
-        --bg-clr-half: #{$half};
-      }
+  &-large {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+  }
+
+  @each $color-name, $color in $theme-colors {
+    @at-root .bg-#{$color-name} &.bg-#{$color-name} {
+      --bg-clr-half: var(--#{$color-name}-light);
     }
   }
 }

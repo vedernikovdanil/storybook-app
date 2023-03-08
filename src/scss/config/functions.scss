@@ -1,7 +1,7 @@
 // stylelint-disable comment-empty-line-before
-@use "sass:math";
-@use "sass:string";
-@use "sass:map";
+@use 'sass:math';
+@use 'sass:string';
+@use 'sass:map';
 
 @function lch-create($l: 0%, $c: 0%, $h: 0deg, $a: 100%) {
   @return (l: $l, c: $c, h: $h, a: $a);
