@@ -12,7 +12,7 @@
 
   @extend %bg-light;
 
-  @include lch-palette-init(--link-clr, $l: 55%, $c: 50%, $h: 250deg, $mul: 2);
+  @include lch-palette-init(--link-clr, $l: 55%, $c: 50%, $h: 250deg);
 }
 
 @include describe('display') {
@@ -151,6 +151,12 @@
 
     color: var(--text-clr);
     background-color: var(--bg-clr);
+
+    & .bg-#{$color-name} {
+      $postfix: if($color-name == light, darker, light);
+
+      --bg-clr-half: var(--#{$color-name}-#{$postfix});
+    }
   }
 }
 

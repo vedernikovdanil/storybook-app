@@ -10,7 +10,5 @@ export const Link: ComponentStory<typeof Nav.Link> = (args) => (
   <Nav.Link {...args} />
 );
 Link.args = {
-  as: 'a',
-  disabled: false,
   children: 'Link',
 };

@@ -1,6 +1,7 @@
 @use '../../scss/config.scss' as *;
 
 .btn {
+  @extend %bg-light;
   @extend %clickable;
 
   @include shadowed-focus(--bg-clr-half);
@@ -16,13 +17,7 @@
   }
 
   &-large {
-    padding: 0.6rem 1.2rem;
+    padding: 0.7rem 1.4rem;
     font-size: 1rem;
-  }
-
-  @each $color-name, $color in $theme-colors {
-    @at-root .bg-#{$color-name} &.bg-#{$color-name} {
-      --bg-clr-half: var(--#{$color-name}-light);
-    }
   }
 }

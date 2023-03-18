@@ -1,18 +1,18 @@
 import React from 'react';
 import cn from 'classnames';
 import './nav.scss';
-import { type BaseFC } from '../../types';
+import { type ComponentProps } from '../../types';
 
 export interface NavLinkProps {
-  disabled?: false;
+  disabled?: boolean;
 }
 
-const Link: BaseFC<'a', NavLinkProps> = ({
-  as = 'a',
+function Link<As extends React.ElementType>({
+  as = 'a' as As,
   className,
   disabled = false,
   ...props
-}) => {
+}: ComponentProps<As, NavLinkProps>) {
   if (disabled) {
     props = { ...props, 'aria-disabled': disabled, tabIndex: -1 };
   }
@@ -20,6 +20,6 @@ const Link: BaseFC<'a', NavLinkProps> = ({
     className: cn('nav-link', className),
     ...props,
   });
-};
+}
 
 export default Link;
