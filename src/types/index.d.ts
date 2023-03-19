@@ -1,3 +1,5 @@
+import type React from 'react';
+
 export type VariantType =
   | 'light'
   | 'dark'
@@ -9,7 +11,7 @@ export type VariantType =
 
 export type SizeType = 'small' | 'medium' | 'large';
 
-export type ComponentProps<
+export type BaseProps<
   As extends React.ElementType,
   P = unknown
 > = React.PropsWithChildren<ReplaceProps<As, AsProp<As> & P>>;
@@ -17,7 +19,7 @@ export type ComponentProps<
 type Omit<T, U> = Pick<T, Exclude<keyof T, keyof U>>;
 
 type ReplaceProps<Inner extends React.ElementType, P> = Omit<
-  React.ComponentProps<Inner>,
+  React.BaseProps<Inner>,
   P
 > &
   P;

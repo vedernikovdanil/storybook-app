@@ -12,9 +12,7 @@ export default {
   },
 } as ComponentMeta<typeof Nav>;
 
-const Template: ComponentStory<typeof Nav> = (args) => <Nav {...args} />;
-
-export const Default = Template.bind({});
+export const Default: ComponentStory<typeof Nav> = (args) => <Nav {...args} />;
 Default.args = {
   children: (
     <React.Fragment>
