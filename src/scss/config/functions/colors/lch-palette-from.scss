@@ -1,0 +1,12 @@
+@use 'sass:map';
+
+@mixin lch-palette-from(
+  $name,
+  $base-lch,
+  $l: map.get($base-lch, l),
+  $c: map.get($base-lch, c),
+  $h: map.get($base-lch, h),
+  $a: map.get($base-lch, a)
+) {
+  @include lch-palette-init($name, $l, $c, $h, $a);
+}

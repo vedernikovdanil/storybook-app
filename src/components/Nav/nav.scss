@@ -1,4 +1,4 @@
-@use '/src/scss/config.scss' as *;
+@use '~@scss/config' as *;
 
 .nav {
   display: flex;
@@ -28,12 +28,8 @@
       }
     }
 
-    &:hover {
+    &:hover:not([aria-disabled='true']) {
       background-color: var(--bg-clr-darker);
-
-      &[aria-disabled='true'] {
-        background-color: var(--bg-clr-dark);
-      }
     }
 
     @at-root {

@@ -23,7 +23,7 @@ Default.args = {
         <Link {...Link.args} />
       </Item>
       <Item {...Item.args}>
-        <Link {...Link.args} />
+        <Link {...Link.args} disabled />
       </Item>
     </React.Fragment>
   ),

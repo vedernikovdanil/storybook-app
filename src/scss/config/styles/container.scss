@@ -1,0 +1,17 @@
+@use '../functions' as *;
+@use '../variables' as *;
+
+@include describe('container') {
+  .container {
+    margin: auto;
+    padding: 0 3rem;
+
+    @media ($media-breakpoint) {
+      padding: 0 1rem;
+    }
+
+    @media (width >= 1200px) {
+      max-width: 1200px;
+    }
+  }
+}

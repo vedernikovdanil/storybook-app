@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { type NavLinkProps } from '../Nav/Link';
 import { type BaseProps } from '../../types';
 
-function Logo<As extends React.ElementType>({
+function Logo<As extends React.ElementType = 'a'>({
   className,
   ...props
 }: BaseProps<As, NavLinkProps>) {

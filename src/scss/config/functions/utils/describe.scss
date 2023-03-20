@@ -1,0 +1,9 @@
+@use './print-title' as *;
+
+@mixin describe($title) {
+  @include print-title($title, $bottom: false);
+
+  @content;
+
+  @include print-title($title, $top: false);
+}

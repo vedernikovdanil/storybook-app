@@ -1,0 +1,9 @@
+@mixin palette-replace($from, $to) {
+  /* #{$from} -> #{$to} */
+  #{$from}: var($to);
+  #{$from}-light: var(#{$to}-light);
+  #{$from}-lighter: var(#{$to}-lighter);
+  #{$from}-dark: var(#{$to}-dark);
+  #{$from}-darker: var(#{$to}-darker);
+  #{$from}-half: var(#{$to}-half);
+}

@@ -1,0 +1,33 @@
+@use 'sass:math';
+@use 'sass:string';
+
+@mixin print-title($title, $top: true, $bottom: true) {
+  $width: 20;
+  $title-len: string.length($title);
+  $diff-width: math.abs(math.floor(calc(($width - $title-len) / 2)));
+  $space-str: '';
+  $line-str: '';
+  $half-str: '';
+  $width: calc(($diff-width * 2) + $title-len + 2);
+
+  @for $i from 1 through $width {
+    $space-str: '#{$space-str} ';
+    $line-str: '#{$line-str}=';
+  }
+
+  @for $i from 1 through $diff-width {
+    $half-str: '#{$half-str}=';
+  }
+
+  /* #{$space-str} */
+  @if $top {
+    /* #{$line-str} */
+  }
+
+  /* #{$half-str} #{$title} #{$half-str} */
+  @if $bottom {
+    /* #{$line-str} */
+  }
+  
+  /* #{$space-str} */
+}

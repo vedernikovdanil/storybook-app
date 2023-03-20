@@ -1,0 +1,30 @@
+@use '../functions' as *;
+@use '../variables' as *;
+
+@include describe('margin/padding') {
+  @each $space-class, $space in $spacers {
+    @each $class, $prop in (m: margin, p: padding) {
+      .#{$class} {
+        &-#{$space-class} {
+          #{$prop}: $space !important;
+        }
+
+        &x-#{$space-class} {
+          #{$prop}-left: $space !important;
+          #{$prop}-right: $space !important;
+        }
+
+        &y-#{$space-class} {
+          #{$prop}-top: $space !important;
+          #{$prop}-bottom: $space !important;
+        }
+
+        @each $side_class, $side in (l: left, r: right, t: top, b: bottom) {
+          &#{$side_class}-#{$space-class} {
+            #{$prop}-#{$side}: $space !important;
+          }
+        }
+      }
+    }
+  }
+}

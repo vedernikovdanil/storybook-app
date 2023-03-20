@@ -1,0 +1,25 @@
+@use 'sass:map';
+@use '../functions' as *;
+@use '../variables' as *;
+
+@include describe('bg') {
+  @each $color-name, $color in $theme-colors {
+    @debug $color-name, $color;
+    .bg-#{$color-name},
+    %bg-#{$color-name} {
+      $text: if(map.get($color, l) <= 60%, --light, --dark);
+
+      @include palette_replace(--text-clr, $text);
+      @include palette_replace(--bg-clr, --#{$color-name});
+
+      color: var(--text-clr);
+      background-color: var(--bg-clr);
+
+      & .bg-#{$color-name} {
+        $postfix: if($color-name == light, darker, light);
+
+        --bg-clr-half: var(--#{$color-name}-#{$postfix});
+      }
+    }
+  }
+}

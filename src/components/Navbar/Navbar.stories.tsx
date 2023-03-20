@@ -18,7 +18,7 @@ export const Default: ComponentStory<typeof Navbar> = (args) => (
 Default.args = {
   children: (
     <React.Fragment>
-      <Navbar.Logo to="/">Logo</Navbar.Logo>
+      <Navbar.Logo>Logo</Navbar.Logo>
       <Navbar.Collapse>
         <NavStory {...NavStory.args} />
         <NavStory {...NavStory.args} className="ml-auto">

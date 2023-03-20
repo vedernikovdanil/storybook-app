@@ -1,6 +1,20 @@
-@forward './config.scss';
+@use './config' as *;
+
+@forward './config';
 
 /* index.scss */
+
+:root {
+  --border-radius: 0.5rem;
+
+  @each $name, $color in $theme-colors {
+    @include lch-palette-init(--#{$name}, $color...);
+  }
+
+  @extend %bg-light;
+
+  @include lch-palette-init(--link-clr, $l: 55%, $c: 50%, $h: 250deg);
+}
 
 html,
 body {
@@ -28,18 +42,6 @@ a {
 
   &:hover {
     text-decoration: none;
-  }
-}
-
-.darkmode-toggler {
-  --emoji: '🌞';
-
-  @extend %emoji;
-
-  appearance: none;
-
-  &:checked {
-    --emoji: '🌚';
   }
 }
 

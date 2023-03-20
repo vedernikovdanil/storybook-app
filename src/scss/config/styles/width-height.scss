@@ -1,0 +1,18 @@
+@use '../functions' as *;
+@use '../variables' as *;
+
+@include describe('width/height') {
+  @each $class, $prop in (w: width, h: height) {
+    .#{$class}-fit {
+      #{$prop}: fit-content !important;
+    }
+
+    @each $space-class, $space in $percents {
+      @each $pt-class, $pt in ('vh': 'vh', 'vw': 'vw', '': '%') {
+        .#{$class}-#{$space-class}#{$pt-class} {
+          #{$prop}: #{$space}#{$pt} !important;
+        }
+      }
+    }
+  }
+}

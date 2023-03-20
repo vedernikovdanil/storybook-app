@@ -1,4 +1,4 @@
-@use '../../scss/config.scss' as *;
+@use '~@scss/config' as *;
 
 .navbar {
   border-bottom: 1px solid var(--secondary);
@@ -96,5 +96,17 @@
         max-height: var(--height, max-content);
       }
     }
+  }
+}
+
+.darkmode-toggler {
+  --emoji: '🌞';
+
+  @extend %emoji;
+
+  appearance: none;
+
+  &:checked {
+    --emoji: '🌚';
   }
 }

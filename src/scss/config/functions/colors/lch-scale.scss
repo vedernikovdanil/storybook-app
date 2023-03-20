@@ -1,0 +1,11 @@
+@use 'sass:map';
+@use './lch-init' as *;
+
+@mixin lch-scale($name, $base-lch, $l: 0%, $c: 0%, $h: 0deg, $a: 0%) {
+  $l: map.get($base-lch, l) + $l;
+  $c: map.get($base-lch, c) + $c;
+  $h: map.get($base-lch, h) + $h;
+  $a: map.get($base-lch, a) + $a;
+
+  @include lch-init($name, $l, $c, $h, $a);
+}

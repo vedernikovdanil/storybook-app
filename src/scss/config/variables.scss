@@ -1,5 +1,5 @@
 @use 'sass:map';
-@use './functions.scss' as *;
+@use './functions' as *;
 
 $primary: lch-create(
   $l: 60%,
@@ -13,8 +13,8 @@ $theme-colors: (
   success: lch-from($primary, $h: 140deg),
   danger: lch-from($primary, $h: 30deg),
   warning: lch-from($primary, $h: 85deg, $l: 85%),
-  light: lch-create(100%),
-  dark: lch-create(25%),
+  light: lch-create(100%, $mul: 1),
+  dark: lch-create(25%, $mul: -1),
 );
 $spacers: (
   auto: auto,

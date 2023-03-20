@@ -1,4 +1,4 @@
-@use '../../scss/config.scss' as *;
+@use '~@scss/config' as *;
 
 .btn {
   @extend %clickable;

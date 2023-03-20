@@ -1,0 +1,12 @@
+@use 'sass:map';
+@use './lch-create' as *;
+
+@function lch-from(
+  $base-lch,
+  $l: map.get($base-lch, l),
+  $c: map.get($base-lch, c),
+  $h: map.get($base-lch, h),
+  $a: map.get($base-lch, a)
+) {
+  @return lch-create($l, $c, $h, $a);
+}

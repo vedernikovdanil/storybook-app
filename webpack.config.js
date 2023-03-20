@@ -1,4 +1,11 @@
+const path = require('path');
+
 module.exports = {
+  resolve: {
+    alias: {
+      '@scss': path.resolve(__dirname, 'src/scss'),
+    },
+  },
   module: {
     rules: [
       {
@@ -14,7 +21,12 @@ module.exports = {
               },
             },
           },
-          'sass-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              webpackImporter: true,
+            },
+          },
         ],
       },
     ],

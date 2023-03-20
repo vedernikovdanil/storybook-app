@@ -1,0 +1,10 @@
+@use '../functions' as *;
+@use '../variables' as *;
+
+@include describe('gap') {
+  @each $space-class, $space in $spacers {
+    .gap-#{$space-class} {
+      gap: $space !important;
+    }
+  }
+}
