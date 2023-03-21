@@ -1,6 +1,7 @@
-@use '~@scss/config' as *;
+@use '~/src/scss/config' as *;
 
 .btn {
+  @extend %bg-light;
   @extend %clickable;
 
   @include shadowed-focus(--bg-clr-half);
