@@ -2,13 +2,14 @@
   "name": "storybook-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://vedernikovdanil.github.io/storybook-app",
   "main": "dist/index.js",
   "file": [
     "./dist"
   ],
   "scripts": {
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public",
+    "build-storybook": "build-storybook -o build",
     "build": "webpack --mode production",
     "stylelint": "stylelint **/*.scss",
     "stylelint:fix": "stylelint --fix **/*.scss",
