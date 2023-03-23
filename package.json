@@ -2,12 +2,25 @@
   "name": "storybook-app",
   "version": "0.1.0",
   "private": true,
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "dependencies": {
     "classnames": "^2.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
+  "peerDependencies": {
+    "classnames": "^2.3.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "resolutions": {
+    "classnames": "^2.3.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
   "scripts": {
+    "build": "webpack --mode production",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
     "stylelint": "stylelint **/*.scss",
@@ -29,6 +42,8 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.21.3",
+    "@babel/preset-env": "^7.20.2",
     "@storybook/addon-a11y": "^6.5.16",
     "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-essentials": "^6.5.16",
@@ -44,7 +59,9 @@
     "@typescript-eslint/eslint-plugin": "^5.54.1",
     "@typescript-eslint/parser": "^5.54.1",
     "autoprefixer": "^10.4.13",
+    "babel-loader": "^9.1.2",
     "babel-plugin-named-exports-order": "^0.0.2",
+    "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.3",
     "eslint": "^8.35.0",
     "eslint-config-prettier": "^8.7.0",
@@ -60,14 +77,17 @@
     "prettier": "^2.8.4",
     "prop-types": "^15.8.1",
     "sass": "^1.58.3",
-    "sass-loader": "^13.2.0",
+    "sass-loader": "^13.2.1",
     "style-loader": "^3.3.1",
     "stylelint": "^15.2.0",
     "stylelint-config-clean-order": "^5.0.0",
     "stylelint-config-standard-scss": "^7.0.1",
     "stylelint-prettier": "^3.0.0",
+    "ts-loader": "^9.4.2",
     "typescript": "^4.9.5",
-    "webpack": "^5.75.0",
-    "webpack-merge": "^5.8.0"
+    "webpack": "^5.76.3",
+    "webpack-cli": "^5.0.1",
+    "webpack-merge": "^5.8.0",
+    "webpack-node-externals": "^3.0.0"
   }
 }

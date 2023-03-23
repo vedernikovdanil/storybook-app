@@ -1,5 +1,5 @@
 const { merge } = require('webpack-merge');
-const webpackConfig = require('../webpack.config');
+const webpackRules = require('../webpack.rules');
 
 module.exports = {
   stories: ['../src/**/*.stories.tsx'],
@@ -13,5 +13,5 @@ module.exports = {
   core: {
     builder: '@storybook/builder-webpack5',
   },
-  webpackFinal: async (config) => merge(config, webpackConfig),
+  webpackFinal: async (config) => merge(config, webpackRules),
 };
