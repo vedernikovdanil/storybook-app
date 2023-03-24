@@ -5,5 +5,5 @@
     "color-function-notation": "modern",
     "color-no-hex": true
   },
-  "ignoreFiles": "./**/stories/*.scss"
+  "ignoreFiles": ["./**/*.css"]
 }

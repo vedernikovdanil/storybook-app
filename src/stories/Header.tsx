@@ -1,13 +1,13 @@
 import React from 'react';
 
 import { Button } from './Button';
-import './header.scss';
+import './header.css';
 
 interface User {
   name: string;
 }
 
-interface HeaderProps {
+export interface HeaderProps {
   user?: User;
   onLogin: () => void;
   onLogout: () => void;

@@ -9,8 +9,8 @@ module.exports = merge(webpackRules, {
   output: {
     filename: 'index.js',
     path: path.resolve(__dirname, 'dist'),
-    libraryTarget: 'umd',
     library: 'storybook-app',
+    libraryTarget: 'umd',
   },
   externals: [nodeExternals()],
   plugins: [new CleanWebpackPlugin()],
