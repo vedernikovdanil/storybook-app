@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 import './nav.scss';
-import { type BaseProps } from '../../types';
+import { type BaseProps } from '../../../types';
 
 export interface NavLinkProps {
   disabled?: boolean;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { type ComponentMeta, type ComponentStory } from '@storybook/react';
 import Navbar from './Navbar';
-import { Default as NavStory } from '../Nav/Nav.stories';
+import { Default as NavStory } from '../../molecules/Nav/Nav.stories';
 
 export default {
   component: Navbar.Collapse,

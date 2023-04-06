@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { type ChangeEvent } from 'react';
 
 const THEME_STORAGE_KEY = 'darkmode';
 const DARK_CLASS = 'bg-dark';
@@ -8,9 +8,9 @@ function DarkmodeToggler() {
   const getThemeName = (darkmode: boolean) =>
     darkmode ? DARK_CLASS : LIGHT_CLASS;
 
-  const [darkmode, setDarkmode] = React.useState(() => {
-    return localStorage.getItem(THEME_STORAGE_KEY) === 'true';
-  });
+  const [darkmode, setDarkmode] = React.useState(
+    () => localStorage.getItem(THEME_STORAGE_KEY) === 'true'
+  );
 
   React.useEffect(() => {
     document.documentElement.classList.add(getThemeName(darkmode));
@@ -20,14 +20,16 @@ function DarkmodeToggler() {
     };
   }, [darkmode]);
 
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setDarkmode(e.target.checked);
+  };
+
   return (
     <input
       type="checkbox"
       className="darkmode-toggler"
       checked={darkmode}
-      onChange={(e) => {
-        setDarkmode(e.target.checked);
-      }}
+      onChange={onChange}
     />
   );
 }

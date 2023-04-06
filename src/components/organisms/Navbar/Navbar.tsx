@@ -4,7 +4,7 @@ import cn from 'classnames';
 import Logo from './Logo';
 import Collapse from './Collapse';
 import DarkmodeToggler from './DarkmodeToggler';
-import { type VariantType } from '../../types';
+import { type VariantType } from '../../../types';
 
 export interface NavbarProps extends React.ComponentProps<'nav'> {
   variant?: VariantType;

@@ -5,6 +5,7 @@ const { merge } = require('webpack-merge');
 const webpackRules = require('./webpack.rules');
 
 module.exports = merge(webpackRules, {
+  devtool: 'source-map',
   entry: './src/index.ts',
   output: {
     filename: 'index.js',

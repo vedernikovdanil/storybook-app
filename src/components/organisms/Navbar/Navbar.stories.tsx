@@ -1,8 +1,8 @@
 import React from 'react';
 import { type ComponentMeta, type ComponentStory } from '@storybook/react';
 import Navbar from './Navbar';
-import Nav from '../Nav';
-import { Default as NavStory } from '../Nav/Nav.stories';
+import Nav from '../../molecules/Nav';
+import { Default as NavStory } from '../../molecules/Nav/Nav.stories';
 
 export default {
   component: Navbar,
