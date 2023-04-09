@@ -8,8 +8,11 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
 
-      - name: ESLint
+      - name: Install dependencies 🔗
+        run: npm ci
+
+      - name: ESLint 🧑‍💻
         run: npm run eslint
 
-      - name: Stylelint
+      - name: Stylelint 👔
         run: npm run stylelint
