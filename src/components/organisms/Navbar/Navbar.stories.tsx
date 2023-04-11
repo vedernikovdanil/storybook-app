@@ -7,8 +7,9 @@ import { Default as NavStory } from '../../molecules/Nav/Nav.stories';
 export default {
   component: Navbar,
   subcomponents: {
-    DarkmodeToggler: Navbar.DarkmodeToggler,
     Logo: Navbar.Logo,
+    Collapse: Navbar.Collapse,
+    DarkmodeToggler: Navbar.DarkmodeToggler,
   },
 } as ComponentMeta<typeof Navbar>;
 

@@ -1,0 +1,47 @@
+.form {
+  &-input {
+    height: 2rem;
+    padding: 1rem;
+    color: var(--text-clr);
+    background-color: var(--bg-clr);
+  }
+
+  &-floatInput {
+    position: relative;
+    width: fit-content;
+
+    label {
+      cursor: text;
+      position: absolute;
+      left: 0.75rem;
+      line-height: 2.75rem;
+    }
+
+    input {
+      height: 2.75rem;
+      padding: 1.75rem 1rem 1rem;
+
+      &::placeholder {
+        color: transparent;
+      }
+    }
+
+    &:has(input:focus, input.active) label {
+      font-size: 0.75rem;
+      line-height: 1.5rem;
+      color: var(--text-clr-half);
+    }
+  }
+
+  fieldset {
+    padding: 1rem;
+    padding-top: 0.75rem;
+  }
+
+  &-input,
+  fieldset {
+    appearance: none;
+    border: 1px solid var(--secondary);
+    border-radius: var(--border-radius);
+  }
+}
