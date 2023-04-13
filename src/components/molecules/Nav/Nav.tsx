@@ -1,6 +1,6 @@
 import React from 'react';
 import cn from 'classnames';
-import './nav.scss';
+import './styles/index.scss';
 import Item from './Item';
 import Link from './Link';
 

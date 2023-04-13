@@ -1,0 +1,12 @@
+@use '../styles/config' as *;
+
+%field {
+  label {
+    width: 150px;
+    margin-right: 1rem;
+
+    + * {
+      display: inline-block;
+    }
+  }
+}

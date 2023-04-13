@@ -1,5 +1,5 @@
 import React from 'react';
-import './navbar.scss';
+import './styles/index.scss';
 import cn from 'classnames';
 import Logo from './Logo';
 import Collapse from './Collapse';

@@ -1,0 +1,22 @@
+@use '~/src/scss/config' as *;
+@use '../Link' as *;
+@use './tabs' as *;
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+
+  &-item {
+    list-style: none;
+  }
+
+  &-link {
+    @extend %link;
+  }
+
+  &-tabs {
+    @extend %tabs;
+  }
+}

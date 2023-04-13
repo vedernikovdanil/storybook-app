@@ -1,0 +1,30 @@
+@use '../styles/tabs.scss' as *;
+
+%link {
+  @extend %tabs;
+
+  display: block;
+
+  padding: 0.5rem 1rem;
+
+  color: var(--text-clr);
+  text-decoration: none;
+
+  border-radius: var(--border-radius);
+
+  &.active {
+    background-color: var(--bg-clr-dark);
+
+    @at-root .nav-tabs & {
+      background-color: var(--bg-clr-darker);
+    }
+  }
+
+  &:hover:not([aria-disabled='true']) {
+    background-color: var(--bg-clr-darker);
+  }
+
+  &[aria-disabled='true'] {
+    color: var(--text-clr-half);
+  }
+}

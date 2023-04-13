@@ -1,0 +1,52 @@
+@use '~/src/scss/config' as *;
+@use '../Logo' as *;
+@use '../Collapse' as *;
+@use '../DarkmodeToggler' as *;
+
+.navbar {
+  border-bottom: 1px solid var(--text-clr-half);
+
+  &-logo {
+    @extend %logo;
+  }
+
+  &-collapse {
+    @extend %collapse;
+  }
+
+  &-toggler {
+    @extend %toggler;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+
+    @media ($media-breakpoint) {
+      align-items: center;
+    }
+  }
+
+  .nav {
+    @media ($media-breakpoint) {
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1rem 0;
+      background-color: inherit !important;
+    }
+  }
+
+  @at-root {
+    @media ($media-breakpoint) {
+      &-toggler:checked + &-collapse {
+        max-height: var(--height, max-content);
+      }
+    }
+  }
+}
+
+.darkmode-toggler {
+  @extend %darkmode-toggler;
+}

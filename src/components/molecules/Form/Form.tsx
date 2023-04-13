@@ -1,7 +1,8 @@
 import React from 'react';
 import cn from 'classnames';
-import './form.scss';
+import './styles/index.scss';
 import { type BaseProps } from '../../../types';
+import Group from './Group';
 import Field from './Field';
 import Input from './Input';
 import FloatInput from './FloatInput';
@@ -18,6 +19,7 @@ function Form<As extends React.ElementType = 'form'>({
 }
 
 export default Object.assign(Form, {
+  Group,
   Field,
   Input,
   FloatInput,

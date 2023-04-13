@@ -1,0 +1,22 @@
+@use '../Input' as *;
+@use '../FloatInput' as *;
+@use '../Group' as *;
+@use '../Field' as *;
+
+.form {
+  &-input {
+    @extend %input;
+  }
+
+  &-field {
+    @extend %field;
+  }
+
+  &-floatinput {
+    @extend %floatinput;
+  }
+
+  &-group {
+    @extend %group;
+  }
+}

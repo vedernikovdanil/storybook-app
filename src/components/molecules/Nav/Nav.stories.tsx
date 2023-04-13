@@ -1,8 +1,8 @@
 import React from 'react';
-import { type ComponentMeta, type ComponentStory } from '@storybook/react';
+import { type StoryObj, type Meta } from '@storybook/react';
 import Nav from './Nav';
-import { Item } from './Item.stories';
-import { Link } from './Link.stories';
+import { Item } from './Item/Item.stories';
+import { Link } from './Link/Link.stories';
 
 export default {
   component: Nav,
@@ -10,21 +10,22 @@ export default {
     Item: Nav.Item,
     Link: Nav.Link,
   },
-} as ComponentMeta<typeof Nav>;
+} as Meta<typeof Nav>;
 
-export const Default: ComponentStory<typeof Nav> = (args) => <Nav {...args} />;
-Default.args = {
-  children: (
-    <React.Fragment>
-      <Item {...Item.args}>
-        <Link {...Link.args} />
-      </Item>
-      <Item {...Item.args}>
-        <Link {...Link.args} />
-      </Item>
-      <Item {...Item.args}>
-        <Link {...Link.args} disabled />
-      </Item>
-    </React.Fragment>
-  ),
+export const Default: StoryObj<typeof Nav> = {
+  args: {
+    children: (
+      <React.Fragment>
+        <Nav.Item {...Item.args}>
+          <Nav.Link {...Link.args} />
+        </Nav.Item>
+        <Nav.Item {...Item.args}>
+          <Nav.Link {...Link.args} />
+        </Nav.Item>
+        <Nav.Item {...Item.args}>
+          <Nav.Link {...Link.args} disabled />
+        </Nav.Item>
+      </React.Fragment>
+    ),
+  },
 };

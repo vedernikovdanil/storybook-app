@@ -25,6 +25,6 @@ type ReplaceProps<Inner extends React.ElementType, P> = Omit<
 > &
   P;
 
-interface AsProp<As extends React.ElementType> {
+export interface AsProp<As extends React.ElementType> {
   as?: As;
 }

@@ -1,5 +1,5 @@
 import { type SizeType, type VariantType } from '../../../types';
-import './button.scss';
+import './index.scss';
 import cn from 'classnames';
 import React from 'react';
 
