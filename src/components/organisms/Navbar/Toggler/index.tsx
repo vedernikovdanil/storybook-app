@@ -1,13 +1,13 @@
 import React from 'react';
 
-export interface NavbarToggler
+export interface NavbarTogglerProps
   extends Omit<
     React.ComponentPropsWithoutRef<'input'>,
     'type' | 'classNames'
   > {}
 
 function Toggler(
-  { className, ...props }: NavbarToggler,
+  { className, ...props }: NavbarTogglerProps,
   ref?: React.Ref<HTMLInputElement>
 ) {
   return (

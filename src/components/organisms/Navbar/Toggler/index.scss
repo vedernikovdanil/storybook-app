@@ -5,8 +5,6 @@
 
   cursor: pointer;
 
-  display: none;
-
   padding: 0.25rem 0.75rem;
 
   appearance: none;
@@ -24,9 +22,5 @@
     background-color: var(--text-clr-half);
 
     mask-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2030%2030'%3E%3Cpath%20stroke='black'%20stroke-linecap='round'%20stroke-miterlimit='10'%20stroke-width='2'%20d='M4%207h22M4%2015h22M4%2023h22'/%3E%3C/svg%3E");
-  }
-
-  @media ($media-breakpoint) {
-    display: block;
   }
 }

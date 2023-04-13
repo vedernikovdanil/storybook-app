@@ -8,6 +8,7 @@ export default {
   component: Navbar,
   subcomponents: {
     Logo: Navbar.Logo,
+    Toggler: Navbar.Toggler,
     Collapse: Navbar.Collapse,
     DarkmodeToggler: Navbar.DarkmodeToggler,
   },

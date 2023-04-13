@@ -27,4 +27,12 @@
       background-color: var(--text-clr-half);
     }
   }
+
+  @at-root :has(&) .navbar-toggler {
+    display: none;
+
+    @media ($media-breakpoint) {
+      display: block;
+    }
+  }
 }
