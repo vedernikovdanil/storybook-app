@@ -3,10 +3,10 @@ import { type StoryObj, type Meta } from '@storybook/react';
 import Navbar from '../Navbar';
 
 export default {
-  component: Navbar.Collapse,
+  component: Navbar.Toggler,
   decorators: [(story) => <Navbar>{story()}</Navbar>],
-} as Meta<typeof Navbar.Collapse>;
+} as Meta<typeof Navbar.Toggler>;
 
-export const Collapse: StoryObj<typeof Navbar.Collapse> = {
-  render: (args) => <Navbar.Collapse {...args} />,
+export const Toggler: StoryObj<typeof Navbar.Toggler> = {
+  render: (args) => <Navbar.Toggler {...args} />,
 };

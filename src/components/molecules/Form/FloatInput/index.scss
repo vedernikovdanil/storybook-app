@@ -1,4 +1,4 @@
-@use '../styles/config' as *;
+@use '~/src/scss/config' as *;
 
 %floatinput {
   position: relative;
@@ -7,11 +7,11 @@
     cursor: text;
     position: absolute;
     left: 0.75rem;
-    line-height: var(--floatinput-height);
+    line-height: $floatinput-height;
   }
 
   input {
-    height: var(--floatinput-height);
+    height: $floatinput-height;
     padding: 1.75rem 1rem 1rem;
 
     &::placeholder {

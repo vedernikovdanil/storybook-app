@@ -1,24 +1,21 @@
 import React from 'react';
 import cn from 'classnames';
-import './styles/index.scss';
-import { type BaseProps } from '../../../types';
+import './index.scss';
 import Group from './Group';
 import Field from './Field';
 import Input from './Input';
 import FloatInput from './FloatInput';
 
-function Form<As extends React.ElementType = 'form'>({
-  as = 'form' as As,
-  className,
-  ...props
-}: BaseProps<As>) {
-  return React.createElement(as, {
-    className: cn('form', className),
-    ...props,
-  });
+export interface FormProps extends React.ComponentPropsWithoutRef<'form'> {}
+
+function Form(
+  { className, ...props }: FormProps,
+  ref?: React.Ref<HTMLFormElement>
+) {
+  return <form className={cn('form', className)} ref={ref} {...props} />;
 }
 
-export default Object.assign(Form, {
+export default Object.assign(React.forwardRef(Form), {
   Group,
   Field,
   Input,

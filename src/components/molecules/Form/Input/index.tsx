@@ -13,7 +13,7 @@ function Input(
     className,
     ...props
   }: FormInputProps,
-  ref: React.Ref<HTMLInputElement | null>
+  ref?: React.Ref<HTMLInputElement | null>
 ) {
   const inputRef = React.useRef<HTMLInputElement>(null);
   const getTextWidth = useGetTextWidth(inputRef);

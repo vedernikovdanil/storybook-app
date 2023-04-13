@@ -1,5 +1,4 @@
 import Nav from './Nav';
+import Form from './Form';
 
-export default {
-  Nav,
-};
+export { Nav, Form };

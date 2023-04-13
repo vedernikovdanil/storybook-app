@@ -1,9 +1,12 @@
 @use '~/src/scss/config' as *;
-@use '../Logo' as *;
-@use '../Collapse' as *;
-@use '../DarkmodeToggler' as *;
+@use './Logo' as *;
+@use './Collapse' as *;
+@use './Toggler' as *;
+@use './DarkmodeToggler' as *;
 
 .navbar {
+  color: var(--text-clr);
+  background-color: var(--bg-clr);
   border-bottom: 1px solid var(--text-clr-half);
 
   &-logo {

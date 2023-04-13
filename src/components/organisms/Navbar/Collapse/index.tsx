@@ -1,30 +1,33 @@
 import React from 'react';
 import cn from 'classnames';
+import Toggler from '../Toggler';
 
 export interface NavbarCollapse extends React.ComponentPropsWithoutRef<'div'> {
   onCollapse?: (isCollapse: boolean) => void;
 }
 
 function Collapse({ onCollapse, className, ...props }: NavbarCollapse) {
-  const toggleRef = React.useRef<HTMLInputElement>(null);
+  const togglerRef = React.useRef<HTMLInputElement>(null);
   const collapseRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
     initHeightPropertyStyle();
     window.addEventListener('click', hideCollapse);
-    toggleRef.current?.addEventListener('change', onChange);
+    togglerRef.current?.addEventListener('change', onChange);
+
     return () => {
       window.removeEventListener('click', hideCollapse);
-      toggleRef.current?.removeEventListener('change', onChange);
+      togglerRef.current?.removeEventListener('change', onChange);
     };
   }, []);
 
   function hideCollapse(e: MouseEvent) {
     const el = e.target as HTMLElement;
     const shouldChange = !el.closest('.navbar') || el.tagName === 'A';
-    if (toggleRef.current?.checked && shouldChange) {
-      toggleRef.current.checked = false;
-      toggleRef.current.dispatchEvent(new Event('change'));
+
+    if (togglerRef.current?.checked && shouldChange) {
+      togglerRef.current.checked = false;
+      togglerRef.current.dispatchEvent(new Event('change'));
     }
   }
 
@@ -42,7 +45,7 @@ function Collapse({ onCollapse, className, ...props }: NavbarCollapse) {
 
   return (
     <React.Fragment>
-      <input ref={toggleRef} type="checkbox" className="navbar-toggler" />
+      <Toggler ref={togglerRef} />
       <div
         ref={collapseRef}
         className={cn('navbar-collapse', className)}

@@ -1,12 +1,12 @@
-@use '../styles/config' as *;
-
 %field {
+  > * {
+    display: inline-block;
+    vertical-align: top;
+  }
+
   label {
     width: 150px;
     margin-right: 1rem;
-
-    + * {
-      display: inline-block;
-    }
+    overflow-wrap: break-word;
   }
 }

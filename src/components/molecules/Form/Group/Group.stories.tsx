@@ -1,6 +1,8 @@
 import React from 'react';
 import { type Meta, type StoryFn } from '@storybook/react';
 import Form from '../Form';
+import { Field } from '../Field/Field.stories';
+import { type FormFieldProps } from '../Field';
 
 export default {
   component: Form.Group,
@@ -15,9 +17,9 @@ Group.args = {
   legend: 'Group label',
   children: (
     <React.Fragment>
-      <Form.Input />
-      <Form.Input />
-      <Form.Input />
+      <Form.Field {...(Field.args as FormFieldProps)} />
+      <Form.Field {...(Field.args as FormFieldProps)} />
+      <Form.Field {...(Field.args as FormFieldProps)} />
     </React.Fragment>
   ),
 };

@@ -3,12 +3,15 @@ import './index.scss';
 import cn from 'classnames';
 import React from 'react';
 
-export interface ButtonProps extends React.ComponentProps<'button'> {
+export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
   variant?: VariantType;
   size?: SizeType;
 }
 
-function Button({ variant, size, className, ...props }: ButtonProps) {
+function Button(
+  { variant, size, className, ...props }: ButtonProps,
+  ref?: React.Ref<HTMLButtonElement>
+) {
   return (
     <button
       className={cn(
@@ -17,9 +20,10 @@ function Button({ variant, size, className, ...props }: ButtonProps) {
         variant && `bg-${variant}`,
         className
       )}
+      ref={ref}
       {...props}
     />
   );
 }
 
-export default Button;
+export default React.forwardRef(Button);

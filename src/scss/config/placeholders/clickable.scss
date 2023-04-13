@@ -1,0 +1,9 @@
+%clickable {
+  &:hover {
+    background-color: var(--bg-clr-light);
+  }
+
+  &:active {
+    background-color: var(--bg-clr-dark);
+  }
+}

@@ -1,0 +1,7 @@
+@use '../variables' as *;
+
+%border-template {
+  appearance: none;
+  border: 1px solid var(--bg-clr-darker);
+  border-radius: $border-radius;
+}

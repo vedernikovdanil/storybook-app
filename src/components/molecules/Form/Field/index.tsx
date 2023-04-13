@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 
-export interface FormFieldProps extends React.ComponentProps<'div'> {
+export interface FormFieldProps extends React.ComponentPropsWithoutRef<'div'> {
   label: React.ReactNode;
   labelProps?: Omit<React.ComponentProps<'label'>, 'htmlFor'>;
 }

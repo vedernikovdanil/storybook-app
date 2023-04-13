@@ -1,7 +1,7 @@
-@use '../Input' as *;
-@use '../FloatInput' as *;
-@use '../Group' as *;
-@use '../Field' as *;
+@use './Input' as *;
+@use './FloatInput' as *;
+@use './Group' as *;
+@use './Field' as *;
 
 .form {
   &-input {

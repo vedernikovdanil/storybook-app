@@ -15,6 +15,7 @@ function DarkmodeToggler() {
   React.useEffect(() => {
     document.documentElement.classList.add(getThemeName(darkmode));
     localStorage.setItem(THEME_STORAGE_KEY, darkmode.toString());
+
     return () => {
       document.documentElement.classList.remove(getThemeName(darkmode));
     };
