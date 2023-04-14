@@ -1,6 +1,6 @@
 import React from 'react';
 import { type StoryObj, type Meta } from '@storybook/react';
-import Form from '../Form';
+import Form from '../';
 
 export default {
   component: Form.Field,

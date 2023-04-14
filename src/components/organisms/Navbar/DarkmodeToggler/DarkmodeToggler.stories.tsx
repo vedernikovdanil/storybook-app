@@ -1,10 +1,12 @@
 import React from 'react';
 import { type StoryFn, type Meta } from '@storybook/react';
-import Navbar from '../Navbar';
+import Navbar from '../';
 
-export default {
+const meta: Meta<typeof Navbar.DarkmodeToggler> = {
   component: Navbar.DarkmodeToggler,
-} as Meta<typeof Navbar.DarkmodeToggler>;
+};
+
+export default meta;
 
 export const DarkmodeToggler: StoryFn<typeof Navbar.DarkmodeToggler> = () => (
   <Navbar.DarkmodeToggler />

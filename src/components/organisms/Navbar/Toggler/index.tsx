@@ -6,13 +6,12 @@ export interface NavbarTogglerProps
     'type' | 'classNames'
   > {}
 
-function Toggler(
-  { className, ...props }: NavbarTogglerProps,
-  ref?: React.Ref<HTMLInputElement>
-) {
-  return (
-    <input type="checkbox" className="navbar-toggler" ref={ref} {...props} />
-  );
-}
+const Toggler = React.forwardRef<HTMLInputElement, NavbarTogglerProps>(
+  function Component({ className, ...props }, ref) {
+    return (
+      <input type="checkbox" className="navbar-toggler" ref={ref} {...props} />
+    );
+  }
+);
 
-export default React.forwardRef(Toggler);
+export default Toggler;

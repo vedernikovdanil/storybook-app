@@ -1,28 +1,28 @@
 import React from 'react';
 import { type Meta } from '@storybook/react';
 import Form from '.';
-import { Field } from './Field/Field.stories';
 import { FloatInput } from './FloatInput/FloatInput.stories';
-import { type FormFieldProps } from './Field';
-import { type FormFloatInputProps } from './FloatInput';
+import { Field } from './Field/Field.stories';
 
-export default {
+const meta: Meta<typeof Form> = {
   component: Form,
   subcomponents: {
     Group: Form.Group,
+    Field: Form.Field,
     Input: Form.Input,
     FloatInput: Form.FloatInput,
-    Field: Form.Field,
-  },
-} as Meta<typeof Form>;
+  } as Record<string, React.ComponentType<any>>,
+};
+
+export default meta;
 
 export const Default = {
   args: {
     children: (
       <React.Fragment>
         <Form.Group legend={'Form Component'}>
-          <Form.Field {...(Field.args as FormFieldProps)} />
-          <Form.FloatInput {...(FloatInput.args as FormFloatInputProps)} />
+          <Form.Field {...(Field.args as any)} />
+          <Form.FloatInput {...(FloatInput.args as any)} />
         </Form.Group>
       </React.Fragment>
     ),

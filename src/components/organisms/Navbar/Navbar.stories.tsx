@@ -1,18 +1,20 @@
 import React from 'react';
 import { type StoryObj, type Meta } from '@storybook/react';
-import Navbar from './Navbar';
-import Nav from '../../molecules/Nav';
-import { Default as NavStory } from '../../molecules/Nav/Nav.stories';
+import Navbar from '.';
+import Nav from '@molecules/Nav';
+import { Default as NavStory } from '@molecules/Nav/Nav.stories';
 
-export default {
+const meta: Meta<typeof Navbar> = {
   component: Navbar,
   subcomponents: {
     Logo: Navbar.Logo,
     Toggler: Navbar.Toggler,
     Collapse: Navbar.Collapse,
     DarkmodeToggler: Navbar.DarkmodeToggler,
-  },
-} as Meta<typeof Navbar>;
+  } as Record<string, React.ComponentType<any>>,
+};
+
+export default meta;
 
 export const Default: StoryObj<typeof Navbar> = {
   args: {

@@ -1,3 +1,5 @@
+@use '@scss/config' as *;
+
 %field {
   > * {
     display: inline-block;
@@ -7,6 +9,7 @@
   label {
     width: 150px;
     margin-right: 1rem;
+    line-height: $input-height;
     overflow-wrap: break-word;
   }
 }

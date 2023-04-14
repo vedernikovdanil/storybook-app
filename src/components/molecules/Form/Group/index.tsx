@@ -6,16 +6,15 @@ export interface FormGroupProps
   legend?: React.ReactNode;
 }
 
-function Group(
-  { legend, className, children, ...props }: FormGroupProps,
-  ref?: React.Ref<HTMLFieldSetElement>
-) {
-  return (
-    <fieldset className={cn('form-group', className)} ref={ref} {...props}>
-      {legend ? <legend>{legend}</legend> : undefined}
-      {children}
-    </fieldset>
-  );
-}
+const Group = React.forwardRef<HTMLFieldSetElement, FormGroupProps>(
+  function Component({ legend, className, children, ...props }, ref) {
+    return (
+      <fieldset className={cn('form-group', className)} ref={ref} {...props}>
+        {legend ? <legend>{legend}</legend> : undefined}
+        {children}
+      </fieldset>
+    );
+  }
+);
 
 export default Group;

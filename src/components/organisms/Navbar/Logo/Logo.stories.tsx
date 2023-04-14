@@ -1,10 +1,12 @@
 import React from 'react';
 import { type StoryObj, type Meta } from '@storybook/react';
-import Navbar from '../Navbar';
+import Navbar from '../';
 
-export default {
+const meta: Meta<typeof Navbar.Logo> = {
   component: Navbar.Logo,
-} as Meta<typeof Navbar.Logo>;
+};
+
+export default meta;
 
 export const Logo: StoryObj<typeof Navbar.Logo> = {
   render: (args) => <Navbar.Logo {...args} />,
