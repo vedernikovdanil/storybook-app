@@ -1,15 +1,12 @@
 @use '@scss/config' as *;
 
 %toggler {
+  @extend %border-template;
+
   @include shadowed-focus(--text-clr-half);
 
   cursor: pointer;
-
   padding: 0.25rem 0.75rem;
-
-  appearance: none;
-  border: 1px solid var(--text-clr-half);
-  border-radius: $border-radius;
 
   &::before {
     content: '';

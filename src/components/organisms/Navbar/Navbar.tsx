@@ -2,8 +2,9 @@ import React from 'react';
 import cn from 'classnames';
 import './index.scss';
 import { type VariantType } from '~/src/types';
+import Container from '@atoms/Container';
 
-export interface NavbarProps extends React.ComponentProps<'nav'> {
+export interface NavbarProps extends React.ComponentPropsWithoutRef<'nav'> {
   variant?: VariantType;
 }
 
@@ -13,7 +14,7 @@ function Navbar({ children, variant, className, ...props }: NavbarProps) {
       className={cn('navbar', variant && `bg-${variant}`, className)}
       {...props}
     >
-      <div className="container">{children}</div>
+      <Container>{children}</Container>
     </nav>
   );
 }

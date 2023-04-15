@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 export interface FormFieldProps extends React.ComponentPropsWithoutRef<'div'> {
   label: React.ReactNode;
-  labelProps?: Omit<React.ComponentProps<'label'>, 'htmlFor'>;
+  labelProps?: React.ComponentPropsWithoutRef<'label'>;
 }
 
 function Field({

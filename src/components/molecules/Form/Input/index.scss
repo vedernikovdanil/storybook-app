@@ -3,11 +3,12 @@
 %input {
   @extend %border-template;
 
-  width: fit-content;
+  min-width: clamp(0px, var(--width, fit-content), 100%);
   height: $input-height;
   padding: 1rem;
 
   color: var(--text-clr);
+  text-overflow: ellipsis;
 
   background-color: var(--bg-clr);
 

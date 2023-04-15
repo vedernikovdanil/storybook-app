@@ -2,7 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 import './index.scss';
 
-export interface NavListProps extends React.ComponentProps<'ul'> {
+export interface NavListProps extends React.ComponentPropsWithoutRef<'ul'> {
   tabs?: boolean;
 }
 

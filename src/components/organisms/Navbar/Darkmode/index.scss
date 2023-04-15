@@ -1,11 +1,9 @@
 @use '@scss/config' as *;
 
-%darkmode-toggler {
+%darkmode {
   --emoji: '🌞';
 
   @extend %emoji;
-
-  appearance: none;
 
   &:checked {
     --emoji: '🌚';

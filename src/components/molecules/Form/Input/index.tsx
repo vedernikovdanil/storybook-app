@@ -21,7 +21,7 @@ const Input = React.forwardRef<HTMLInputElement | null, FormInputProps>(
 
     function onChange(e: ChangeEvent<HTMLInputElement>) {
       const width = getTextWidth(e.target.value, true);
-      e.target.style.minWidth = `${width}px`;
+      e.target.style.setProperty('--width', `${width}px`);
       e.target.classList.toggle('active', !!e.target.value);
 
       onChangeProp?.call({}, e);

@@ -1,6 +1,9 @@
 @use '@scss/config' as *;
 
 %field {
+  display: grid;
+  grid-template-columns: auto 1fr;
+
   > * {
     display: inline-block;
     vertical-align: top;

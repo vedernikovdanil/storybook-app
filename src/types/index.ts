@@ -20,7 +20,7 @@ export type BaseProps<
 type Omit<T, U> = Pick<T, Exclude<keyof T, keyof U>>;
 
 type ReplaceProps<Inner extends React.ElementType, P> = Omit<
-  React.ComponentProps<Inner>,
+  React.ComponentPropsWithoutRef<Inner>,
   P
 > &
   P;

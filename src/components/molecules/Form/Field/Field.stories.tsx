@@ -11,7 +11,7 @@ export const Field: StoryObj<typeof Form.Field> = {
   render: (args) => <Form.Field {...args} />,
 
   args: {
-    label: 'Input label',
+    label: 'Field label',
     children: <Form.Input />,
   },
 };

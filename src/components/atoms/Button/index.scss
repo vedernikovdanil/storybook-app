@@ -6,7 +6,6 @@
 
   @include shadowed-focus(--bg-clr-half);
 
-  cursor: pointer;
   padding: 0.5rem 1rem;
   border: 3px solid var(--bg-clr-dark);
   border-radius: $border-radius;

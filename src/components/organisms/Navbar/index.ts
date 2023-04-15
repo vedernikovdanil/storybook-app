@@ -2,13 +2,13 @@ import Navbar from './Navbar';
 import Logo from './Logo';
 import Collapse from './Collapse';
 import Toggler from './Toggler';
-import DarkmodeToggler from './DarkmodeToggler';
+import Darkmode from './Darkmode';
 
 const Component = Object.assign(Navbar, {
   Logo,
   Collapse,
   Toggler,
-  DarkmodeToggler,
+  Darkmode,
 });
 
 export default Component;

@@ -1,15 +1,18 @@
 import React from 'react';
 
 export interface NavbarTogglerProps
-  extends Omit<
-    React.ComponentPropsWithoutRef<'input'>,
-    'type' | 'classNames'
-  > {}
+  extends React.ComponentPropsWithoutRef<'input'> {}
 
 const Toggler = React.forwardRef<HTMLInputElement, NavbarTogglerProps>(
-  function Component({ className, ...props }, ref) {
+  function Component(props, ref) {
     return (
-      <input type="checkbox" className="navbar-toggler" ref={ref} {...props} />
+      <input
+        type="checkbox"
+        className="navbar-toggler"
+        aria-label="Navbar toggler"
+        ref={ref}
+        {...props}
+      />
     );
   }
 );

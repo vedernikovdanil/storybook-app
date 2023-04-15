@@ -1,10 +1,22 @@
+@use 'sass:map';
 @use '../functions' as *;
 @use '../variables' as *;
 
-@include describe('text') {
-  .text {
-    &-uppercase::first-letter {
-      text-transform: capitalize;
+@each $theme, $color in $theme-colors {
+  .text-#{$theme},
+  %text-#{$theme} {
+    $text: if(map.get($color, l) <= 60%, light, dark);
+
+    @include palette_replace(--text-clr, --#{$text});
+    @include palette_replace(--bg-clr, --#{$theme});
+
+    color: var(--text-clr);
+    background-color: var(--bg-clr);
+
+    @at-root .bg-#{$theme} .bg-#{$theme} {
+      $postfix: if($theme == light, darker, light);
+
+      --bg-clr-half: var(--#{$theme}-#{$postfix});
     }
   }
 }

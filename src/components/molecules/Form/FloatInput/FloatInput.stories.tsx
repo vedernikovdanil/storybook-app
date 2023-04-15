@@ -11,6 +11,6 @@ export const FloatInput: StoryObj<typeof Form.FloatInput> = {
   render: (args) => <Form.FloatInput {...args} />,
 
   args: {
-    label: 'Input label',
+    label: 'Float label',
   },
 };

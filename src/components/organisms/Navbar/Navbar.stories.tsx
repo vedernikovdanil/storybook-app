@@ -10,7 +10,7 @@ const meta: Meta<typeof Navbar> = {
     Logo: Navbar.Logo,
     Toggler: Navbar.Toggler,
     Collapse: Navbar.Collapse,
-    DarkmodeToggler: Navbar.DarkmodeToggler,
+    Darkmode: Navbar.Darkmode,
   } as Record<string, React.ComponentType<any>>,
 };
 
@@ -25,7 +25,7 @@ export const Default: StoryObj<typeof Navbar> = {
           <Nav {...NavStory.args} />
           <Nav {...NavStory.args} className="ml-auto">
             <Nav.Item className="ml-auto">
-              <Navbar.DarkmodeToggler />
+              <Navbar.Darkmode />
             </Nav.Item>
           </Nav>
         </Navbar.Collapse>

@@ -35,4 +35,10 @@
       display: block;
     }
   }
+
+  @media ($media-breakpoint) {
+    .navbar-toggler:checked + & {
+      max-height: var(--height, max-content);
+    }
+  }
 }

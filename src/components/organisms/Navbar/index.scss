@@ -2,7 +2,7 @@
 @use './Logo' as *;
 @use './Collapse' as *;
 @use './Toggler' as *;
-@use './DarkmodeToggler' as *;
+@use './Darkmode' as *;
 
 .navbar {
   color: var(--text-clr);
@@ -19,6 +19,10 @@
 
   &-toggler {
     @extend %toggler;
+  }
+
+  &-darkmode {
+    @extend %darkmode;
   }
 
   .container {
@@ -40,16 +44,4 @@
       background-color: inherit !important;
     }
   }
-
-  @at-root {
-    @media ($media-breakpoint) {
-      &-toggler:checked + &-collapse {
-        max-height: var(--height, max-content);
-      }
-    }
-  }
-}
-
-.darkmode-toggler {
-  @extend %darkmode-toggler;
 }
