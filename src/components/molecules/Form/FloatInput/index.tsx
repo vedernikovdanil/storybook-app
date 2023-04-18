@@ -11,7 +11,7 @@ export interface FormFloatInputProps extends FormInputProps {
 const FloatInput = React.forwardRef<
   HTMLInputElement | null,
   FormFloatInputProps
->(function Component({ label, labelProps, className, ...props }, ref) {
+>(function ({ label, labelProps, className, ...props }, ref) {
   const inputId = React.useRef(uniqueId('form-floatinput-'));
 
   return (
@@ -23,5 +23,6 @@ const FloatInput = React.forwardRef<
     </div>
   );
 });
+FloatInput.displayName = 'FloatInput';
 
 export default FloatInput;

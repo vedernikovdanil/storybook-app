@@ -5,7 +5,6 @@
 @mixin lch-palette-init($name, $l: 0%, $c: 0%, $h: 0deg, $a: 100%, $mul: 1) {
   $lch: lch-create($l, $c, $h, $a);
 
-  /* #{$name} */
   @include lch-init($name, $lch...);
   @include lch-scale(#{$name}-light, $lch, $l: 5% * $mul);
   @include lch-scale(#{$name}-lighter, $lch, $l: 10% * $mul);

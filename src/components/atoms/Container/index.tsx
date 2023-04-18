@@ -4,10 +4,12 @@ import cn from 'classnames';
 
 export interface ContainerProps extends React.ComponentPropsWithoutRef<'div'> {}
 
-const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
-  function Component({ className, ...props }, ref) {
-    return <div className={cn('container', className)} ref={ref} {...props} />;
-  }
-);
+const Container = React.forwardRef<HTMLDivElement, ContainerProps>(function (
+  { className, ...props },
+  ref
+) {
+  return <div className={cn('container', className)} ref={ref} {...props} />;
+});
+Container.displayName = 'Container';
 
 export default Container;

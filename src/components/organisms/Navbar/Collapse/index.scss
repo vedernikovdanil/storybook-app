@@ -26,6 +26,10 @@
 
       background-color: var(--text-clr-half);
     }
+
+    .navbar-toggler:checked + & {
+      max-height: var(--height, max-content);
+    }
   }
 
   @at-root :has(&) .navbar-toggler {
@@ -33,12 +37,6 @@
 
     @media ($media-breakpoint) {
       display: block;
-    }
-  }
-
-  @media ($media-breakpoint) {
-    .navbar-toggler:checked + & {
-      max-height: var(--height, max-content);
     }
   }
 }

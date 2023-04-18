@@ -6,7 +6,7 @@ export interface FormInputProps
   extends React.ComponentPropsWithoutRef<'input'> {}
 
 const Input = React.forwardRef<HTMLInputElement | null, FormInputProps>(
-  function Component(
+  function (
     {
       type = 'text',
       placeholder = 'Enter value...',
@@ -41,5 +41,6 @@ const Input = React.forwardRef<HTMLInputElement | null, FormInputProps>(
     );
   }
 );
+Input.displayName = 'Input';
 
 export default Input;

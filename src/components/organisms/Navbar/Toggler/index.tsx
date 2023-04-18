@@ -4,7 +4,7 @@ export interface NavbarTogglerProps
   extends React.ComponentPropsWithoutRef<'input'> {}
 
 const Toggler = React.forwardRef<HTMLInputElement, NavbarTogglerProps>(
-  function Component(props, ref) {
+  function (props, ref) {
     return (
       <input
         type="checkbox"
@@ -16,5 +16,6 @@ const Toggler = React.forwardRef<HTMLInputElement, NavbarTogglerProps>(
     );
   }
 );
+Toggler.displayName = 'Toggler';
 
 export default Toggler;

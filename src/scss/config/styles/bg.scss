@@ -13,10 +13,10 @@
     color: var(--text-clr);
     background-color: var(--bg-clr);
 
-    @at-root .bg-#{$theme} .bg-#{$theme} {
-      $postfix: if($theme == light, darker, light);
+    @at-root & .bg-#{$theme} {
+      $postfix: if($theme == light, dark, lighter);
 
-      --bg-clr-half: var(--#{$theme}-#{$postfix});
+      --shadowed-focus: var(--#{$theme}-#{$postfix});
     }
   }
 }

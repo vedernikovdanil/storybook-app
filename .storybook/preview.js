@@ -15,11 +15,11 @@ export const globalTypes = {
   theme: {
     name: 'Theme',
     description: 'Global theme for components',
-    defaultValue: null,
+    defaultValue: 'auto',
     toolbar: {
       icon: 'circlehollow',
       items: [
-        { value: null, title: 'none' },
+        'auto',
         'light',
         'dark',
         'primary',
@@ -37,6 +37,6 @@ export const globalTypes = {
 
 export const decorators = [
   (story, { globals: { theme } }) => {
-    return <div className={cn('p-3', theme && `bg-${theme}`)}>{story()}</div>;
+    return <div className={cn('p-3', `bg-${theme}`)}>{story()}</div>;
   },
 ];

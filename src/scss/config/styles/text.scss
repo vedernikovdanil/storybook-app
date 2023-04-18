@@ -5,18 +5,14 @@
 @each $theme, $color in $theme-colors {
   .text-#{$theme},
   %text-#{$theme} {
-    $text: if(map.get($color, l) <= 60%, light, dark);
-
-    @include palette_replace(--text-clr, --#{$text});
-    @include palette_replace(--bg-clr, --#{$theme});
+    @include palette_replace(--text-clr, --#{$theme});
 
     color: var(--text-clr);
-    background-color: var(--bg-clr);
 
-    @at-root .bg-#{$theme} .bg-#{$theme} {
-      $postfix: if($theme == light, darker, light);
+    @at-root .bg-#{$theme} & {
+      $text: if(map.get($color, l) <= 60%, light, dark);
 
-      --bg-clr-half: var(--#{$theme}-#{$postfix});
+      @include palette_replace(--text-clr, --#{$text});
     }
   }
 }

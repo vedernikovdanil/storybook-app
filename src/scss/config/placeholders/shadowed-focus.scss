@@ -1,0 +1,7 @@
+%shadowed-focus {
+  transition: box-shadow 0.25s ease;
+
+  &:focus {
+    box-shadow: 0 0 0 5px var(--shadowed-focus, var(--bg-clr-half));
+  }
+}
