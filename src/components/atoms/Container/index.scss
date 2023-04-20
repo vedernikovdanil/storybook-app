@@ -4,7 +4,7 @@
   margin: auto;
   padding: 0 3rem;
 
-  @media ($media-breakpoint) {
+  @media (width <= #{$breakpoint}) {
     padding: 0 1rem;
   }
 

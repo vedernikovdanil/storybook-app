@@ -1,11 +1,8 @@
 @use 'sass:map';
 @use './functions' as *;
 
-$primary: lch-create(
-  $l: 60%,
-  $c: 50%,
-  $h: 255deg,
-);
+// colors
+$primary: lch-create(60%, 50%, 255deg);
 $theme-colors: (
   primary: $primary,
   secondary: lch-from($primary, $c: 0%),
@@ -13,9 +10,16 @@ $theme-colors: (
   success: lch-from($primary, $h: 140deg),
   danger: lch-from($primary, $h: 30deg),
   warning: lch-from($primary, $h: 85deg, $l: 85%),
-  light: lch-create(100%, $mul: 1),
+  light: lch-create(98%, $mul: 1),
   dark: lch-create(25%, $mul: -1),
 );
+$util-colors: (
+  link-clr: lch-create(55%, 50%, 250deg),
+  steam-clr: lch-create(100%, 0, 0, 50%),
+  smoke-clr: lch-create(0, 0, 0, 50%),
+);
+
+// modificators
 $spacers: (
   auto: auto,
   0: 0,
@@ -32,8 +36,9 @@ $percents: (
   75: 75,
   100: 100,
 );
+
+// properties
 $breakpoint: 768px;
-$media-breakpoint: 'width <= #{$breakpoint}';
 $border-radius: 0.5rem;
 $input-height: 2rem;
 $floatinput-height: 2.75rem;

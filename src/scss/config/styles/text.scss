@@ -3,15 +3,14 @@
 @use '../variables' as *;
 
 @each $theme, $color in $theme-colors {
-  .text-#{$theme},
-  %text-#{$theme} {
+  .text-#{$theme} {
+    $text: if(map.get($color, l) <= 60%, light, dark);
+
     @include palette_replace(--text-clr, --#{$theme});
 
     color: var(--text-clr);
 
-    @at-root .bg-#{$theme} & {
-      $text: if(map.get($color, l) <= 60%, light, dark);
-
+    .bg-#{$theme} {
       @include palette_replace(--text-clr, --#{$text});
     }
   }

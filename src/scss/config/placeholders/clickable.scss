@@ -1,9 +1,26 @@
 %clickable {
-  &:hover {
-    background-color: var(--bg-clr-light);
+  --active-clr: var(--bg-clr-dark);
+  --hover-clr: var(--bg-clr-light);
+  --disabled-clr: var(--text-clr-half);
+
+  &:not([aria-disabled='true']) {
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--hover-clr);
+    }
+
+    &:active {
+      background-color: var(--active-clr);
+    }
   }
 
-  &:active {
-    background-color: var(--bg-clr-dark);
+  &[aria-disabled='true'] {
+    cursor: not-allowed;
+    color: var(--disabled-clr);
+
+    &:active {
+      pointer-events: none;
+    }
   }
 }

@@ -6,26 +6,14 @@
 }
 
 %link {
+  --hover-clr: var(--bg-clr-darker);
+  --active-clr: var(--bg-clr);
+
   @extend %tabs;
+  @extend %clickable;
 
   display: block;
-
   padding: 0.5rem 1rem;
-
   color: var(--text-clr);
   text-decoration: none;
-
-  border-radius: $border-radius;
-
-  &.active {
-    background-color: var(--bg-clr-darker);
-  }
-
-  &:hover:not([aria-disabled='true']) {
-    background-color: var(--bg-clr-darker);
-  }
-
-  &[aria-disabled='true'] {
-    color: var(--text-clr-half);
-  }
 }

@@ -3,20 +3,31 @@
 @use '../variables' as *;
 
 @each $theme, $color in $theme-colors {
+  $should-change: map.get($color, l) <= 60%;
+  $text: if($should-change, light, dark);
+  $shadow: if($should-change, steam-clr, smoke-clr);
+  $to-dark: if($theme == light, dark, light);
+
   .bg-#{$theme},
   %bg-#{$theme} {
-    $text: if(map.get($color, l) <= 60%, light, dark);
-
-    @include palette_replace(--text-clr, --#{$text});
+    // initialize palettes of color variables
     @include palette_replace(--bg-clr, --#{$theme});
+    @include palette_replace(--text-clr, --#{$text});
+    @include palette_replace(--shadow-clr, --#{$shadow});
 
     color: var(--text-clr);
     background-color: var(--bg-clr);
+  }
 
-    @at-root & .bg-#{$theme} {
-      $postfix: if($theme == light, dark, lighter);
+  // rewrite --bg-clr-half if parent has equal background color
+  // no use parent class like placeholder to prevent color errors
+  .bg-#{$theme} .bg-#{$theme} {
+    $bg-clr-half: if(
+      $theme == light or $theme == dark,
+      --shadow-clr-half,
+      --#{$theme}-#{$to-dark}er
+    );
 
-      --shadowed-focus: var(--#{$theme}-#{$postfix});
-    }
+    --bg-clr-half: var(#{$bg-clr-half});
   }
 }

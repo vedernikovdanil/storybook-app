@@ -31,13 +31,13 @@
     align-items: baseline;
     justify-content: space-between;
 
-    @media ($media-breakpoint) {
+    @media (width <= #{$breakpoint}) {
       align-items: center;
     }
   }
 
   .nav {
-    @media ($media-breakpoint) {
+    @media (width <= #{$breakpoint}) {
       flex-direction: column;
       gap: 1rem;
       padding: 1rem 0;

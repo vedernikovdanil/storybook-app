@@ -1,15 +1,14 @@
+@use 'sass:map';
 @use './config' as *;
 
 @forward './config';
 
 :root {
-  @each $name, $color in $theme-colors {
+  @each $name, $color in map.merge($theme-colors, $util-colors) {
     @include lch-palette-init(--#{$name}, $color...);
   }
 
   @extend %bg-light;
-
-  @include lch-palette-init(--link-clr, $l: 55%, $c: 50%, $h: 250deg);
 }
 
 body {
@@ -21,18 +20,11 @@ body {
 * {
   box-sizing: border-box;
   padding: 0;
-
-  &[aria-disabled='true'] {
-    cursor: not-allowed;
-    color: var(--text-clr-half);
-
-    &:active {
-      pointer-events: none;
-    }
-  }
 }
 
 a {
+  @extend %clickable;
+
   color: var(--link-clr);
 
   &:hover {

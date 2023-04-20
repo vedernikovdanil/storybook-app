@@ -1,10 +1,9 @@
 @use '@scss/config' as *;
 
 %toggler {
-  --shadowed-focus: var(--text-clr-half);
-
-  @extend %shadowed-focus;
   @extend %border-template;
+
+  @include shadowed-focus;
 
   cursor: pointer;
   padding: 0.25rem 0.75rem;

@@ -1,4 +1,5 @@
 @use 'sass:map';
+@use './lch-palette-init' as *;
 
 @mixin lch-palette-from(
   $name,
