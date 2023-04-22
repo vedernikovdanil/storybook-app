@@ -3,8 +3,7 @@
 %group {
   @extend %border-template;
 
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 1rem;
   padding: 1rem;
 }

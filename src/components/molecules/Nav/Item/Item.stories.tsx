@@ -1,16 +1,17 @@
 import React from 'react';
 import { type StoryObj, type Meta } from '@storybook/react';
-import Nav from '../';
+import Nav from '..';
+import Item from '.';
 
-const meta: Meta<typeof Nav.Item> = {
-  component: Nav.Item,
-  decorators: [(story) => <ul>{story()}</ul>],
+const meta: Meta<typeof Item> = {
+  component: Item,
+  decorators: [(story) => <Nav>{story()}</Nav>],
 };
 
 export default meta;
 
-export const Item: StoryObj<typeof Nav.Item> = {
-  render: (args) => <Nav.Item {...args} />,
+export const Default: StoryObj<typeof Item> = {
+  render: (args) => <Item {...args} />,
 
   args: {
     children: 'Item',

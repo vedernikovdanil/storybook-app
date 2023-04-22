@@ -1,10 +1,11 @@
 @use '@scss/config' as *;
 
 .btn {
+  --shadowed-focus: var(--bg-clr-half);
+
   @extend %bg-light;
   @extend %clickable;
-
-  @include shadowed-focus(--bg-clr-half);
+  @extend %shadowed-focus;
 
   cursor: pointer;
   padding: 0.5rem 1rem;

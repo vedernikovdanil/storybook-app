@@ -1,0 +1,14 @@
+@use '../variables' as *;
+@use './transition-base' as *;
+
+%shadowed-focus {
+  --shadowed-focus: var(--shadow-clr);
+
+  @extend %transition-base;
+
+  transition-property: box-shadow;
+
+  &:focus {
+    box-shadow: 0 0 0 #{$shadowed-focus-width} var(--shadowed-focus);
+  }
+}

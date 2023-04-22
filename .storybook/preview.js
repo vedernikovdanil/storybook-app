@@ -29,7 +29,7 @@ export const globalTypes = {
         'danger',
         'warning',
       ],
-      name: true,
+      title: true,
       dynamicTitle: true,
     },
   },

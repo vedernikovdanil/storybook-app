@@ -1,15 +1,16 @@
+import React from 'react';
 import cn from 'classnames';
 import { type BaseProps } from '~/src/types';
-import Nav from '@molecules/Nav';
-import { type NavLinkProps } from '@molecules/Nav/Link';
 
-function Logo<As extends React.ElementType = 'a'>(
-  props: BaseProps<As, NavLinkProps>
-) {
-  return Nav.Link<As>({
-    className: cn('navbar-logo', props?.className),
+function Logo<As extends React.ElementType = 'a'>({
+  as = 'a' as As,
+  className,
+  ...props
+}: BaseProps<As>) {
+  return React.createElement(as, {
+    className: cn('navbar-logo', className),
     ...props,
-  });
+  } as Partial<BaseProps<'a'>>);
 }
 
 export default Logo;

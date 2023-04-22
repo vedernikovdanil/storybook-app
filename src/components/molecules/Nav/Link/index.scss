@@ -7,13 +7,21 @@
 
 %link {
   --hover-clr: var(--bg-clr-darker);
-  --active-clr: var(--bg-clr);
+  --active-clr: var(--shadow-dark-clr);
 
   @extend %tabs;
   @extend %clickable;
 
+  @include palette-replace(--link-clr, --text-clr);
+
   display: block;
   padding: 0.5rem 1rem;
-  color: var(--text-clr);
   text-decoration: none;
+
+  &.active {
+    --hover-clr: var(--shadow-clr);
+    --active-clr: var(--bg-clr-darker);
+
+    background-color: var(--bg-clr-darker);
+  }
 }

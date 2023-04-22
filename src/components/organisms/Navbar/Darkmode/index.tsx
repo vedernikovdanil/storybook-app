@@ -1,17 +1,17 @@
-import React, { type ChangeEvent } from 'react';
+import React from 'react';
 
 const THEME_STORAGE_KEY = 'darkmode';
 const DARK_CLASS = 'bg-dark';
 const LIGHT_CLASS = 'bg-light';
+
+const getThemeName = (isDarkmode: boolean) =>
+  isDarkmode ? DARK_CLASS : LIGHT_CLASS;
 
 interface NavbarDarkmodeProps {
   onChange?: (isDarkmode: boolean) => void;
 }
 
 function Darkmode({ onChange: onChangeProp }: NavbarDarkmodeProps) {
-  const getThemeName = (isDarkmode: boolean) =>
-    isDarkmode ? DARK_CLASS : LIGHT_CLASS;
-
   const [isDarkmode, setIsDarkmode] = React.useState(
     () => localStorage.getItem(THEME_STORAGE_KEY) === 'true'
   );
@@ -27,17 +27,15 @@ function Darkmode({ onChange: onChangeProp }: NavbarDarkmodeProps) {
     };
   }, [isDarkmode]);
 
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setIsDarkmode(e.target.checked);
+  const toggleIsDarkmode = () => {
+    setIsDarkmode((value) => !value);
   };
 
   return (
-    <input
-      type="checkbox"
+    <button
       className="navbar-darkmode"
       aria-label={'Darkmode toggler'}
-      checked={isDarkmode}
-      onChange={onChange}
+      onClick={toggleIsDarkmode}
     />
   );
 }

@@ -1,0 +1,13 @@
+@use '@scss/config' as *;
+
+%fieldgroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .form-field {
+    label {
+      width: $field-label-max-height;
+    }
+  }
+}

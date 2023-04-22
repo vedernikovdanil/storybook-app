@@ -2,11 +2,12 @@
 
 %toggler {
   @extend %border-template;
-
-  @include shadowed-focus;
+  @extend %shadowed-focus;
 
   cursor: pointer;
+  margin: $shadowed-focus-width;
   padding: 0.25rem 0.75rem;
+  background-color: var(--bg-clr);
 
   &::before {
     content: '';

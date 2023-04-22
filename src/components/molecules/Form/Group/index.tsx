@@ -11,7 +11,7 @@ const Group = React.forwardRef<HTMLFieldSetElement, FormGroupProps>(function (
   ref
 ) {
   return (
-    <fieldset className={cn('form-group', className)} ref={ref} {...props}>
+    <fieldset ref={ref} className={cn('form-group', className)} {...props}>
       {legend ? <legend>{legend}</legend> : undefined}
       {children}
     </fieldset>

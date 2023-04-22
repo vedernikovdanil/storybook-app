@@ -1,14 +1,16 @@
 import Form from './Form';
-import Group from './Group';
-import Field from './Field';
 import Input from './Input';
 import FloatInput from './FloatInput';
+import Field from './Field';
+import FieldGroup from './FieldGroup';
+import Group from './Group';
 
 const Component = Object.assign(Form, {
-  Group,
-  Field,
   Input,
   FloatInput,
+  Field,
+  FieldGroup,
+  Group,
 });
 
 export default Component;

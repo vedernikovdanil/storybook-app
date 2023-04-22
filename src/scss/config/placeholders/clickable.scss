@@ -1,7 +1,6 @@
 %clickable {
-  --active-clr: var(--bg-clr-dark);
   --hover-clr: var(--bg-clr-light);
-  --disabled-clr: var(--text-clr-half);
+  --active-clr: var(--bg-clr-dark);
 
   &:not([aria-disabled='true']) {
     cursor: pointer;
@@ -17,7 +16,7 @@
 
   &[aria-disabled='true'] {
     cursor: not-allowed;
-    color: var(--disabled-clr);
+    color: var(--text-clr-half);
 
     &:active {
       pointer-events: none;

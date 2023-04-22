@@ -1,13 +1,13 @@
 import React from 'react';
 import { type StoryObj, type Meta } from '@storybook/react';
-import Navbar from '..';
+import Darkmode from '.';
 
-const meta: Meta<typeof Navbar.Darkmode> = {
-  component: Navbar.Darkmode,
+const meta: Meta<typeof Darkmode> = {
+  component: Darkmode,
 };
 
 export default meta;
 
-export const Darkmode: StoryObj<typeof Navbar.Darkmode> = {
-  render: (args) => <Navbar.Darkmode {...args} />,
+export const Default: StoryObj<typeof Darkmode> = {
+  render: (args) => <Darkmode {...args} />,
 };

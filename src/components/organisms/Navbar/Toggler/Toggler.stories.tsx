@@ -1,13 +1,13 @@
 import React from 'react';
 import { type StoryObj, type Meta } from '@storybook/react';
-import Navbar from '../';
+import Toggler from '.';
 
-const meta: Meta<typeof Navbar.Toggler> = {
-  component: Navbar.Toggler,
+const meta: Meta<typeof Toggler> = {
+  component: Toggler,
 };
 
 export default meta;
 
-export const Toggler: StoryObj<typeof Navbar.Toggler> = {
-  render: (args) => <Navbar.Toggler {...args} />,
+export const Default: StoryObj<typeof Toggler> = {
+  render: (args) => <Toggler {...args} />,
 };

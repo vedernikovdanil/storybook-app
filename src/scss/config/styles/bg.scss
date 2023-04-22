@@ -4,30 +4,22 @@
 
 @each $theme, $color in $theme-colors {
   $should-change: map.get($color, l) <= 60%;
-  $text: if($should-change, light, dark);
-  $shadow: if($should-change, steam-clr, smoke-clr);
-  $to-dark: if($theme == light, dark, light);
+  $light-or-dark: $theme == light or $theme == dark;
+  $opposite: if($should-change, light, dark);
 
   .bg-#{$theme},
   %bg-#{$theme} {
-    // initialize palettes of color variables
     @include palette_replace(--bg-clr, --#{$theme});
-    @include palette_replace(--text-clr, --#{$text});
-    @include palette_replace(--shadow-clr, --#{$shadow});
+    @include palette_replace(--text-clr, --#{$opposite});
+    @include palette_replace(--shadow-clr, --shadow-#{$opposite}-clr);
 
     color: var(--text-clr);
     background-color: var(--bg-clr);
   }
 
-  // rewrite --bg-clr-half if parent has equal background color
-  // no use parent class like placeholder to prevent color errors
   .bg-#{$theme} .bg-#{$theme} {
-    $bg-clr-half: if(
-      $theme == light or $theme == dark,
-      --shadow-clr-half,
-      --#{$theme}-#{$to-dark}er
-    );
+    $half-color: if($light-or-dark, shadow-clr, bg-clr-light);
 
-    --bg-clr-half: var(#{$bg-clr-half});
+    --bg-clr-half: var(--#{$half-color});
   }
 }

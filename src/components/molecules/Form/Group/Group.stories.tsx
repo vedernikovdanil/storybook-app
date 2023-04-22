@@ -1,17 +1,18 @@
 import React from 'react';
-import { type Meta, type StoryFn } from '@storybook/react';
-import Form from '../';
+import { type StoryObj, type Meta } from '@storybook/react';
+import Form from '..';
+import Group from '.';
 
 export default {
-  component: Form.Group,
+  component: Group,
   decorators: [(story) => <Form>{story()}</Form>],
-} as Meta<typeof Form.Group>;
+} as Meta<typeof Group>;
 
-export const Group: StoryFn<typeof Form.Group> = (args) => (
-  <Form.Group {...args} />
-);
+export const Default: StoryObj<typeof Group> = {
+  render: (args) => <Group {...args} />,
 
-Group.args = {
-  legend: 'legend',
-  children: 'children',
+  args: {
+    legend: 'legend',
+    children: 'children',
+  },
 };

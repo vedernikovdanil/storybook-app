@@ -13,7 +13,4 @@ module.exports = {
     options: {},
   },
   webpackFinal: async (config) => merge(config, webpackRules),
-  docs: {
-    autodocs: true,
-  },
 };

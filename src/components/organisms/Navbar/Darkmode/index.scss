@@ -5,7 +5,7 @@
 
   @extend %emoji;
 
-  &:checked {
+  @at-root html.bg-dark & {
     --emoji: '🌚';
   }
 }

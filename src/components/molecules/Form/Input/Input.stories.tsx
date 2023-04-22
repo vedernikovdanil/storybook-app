@@ -1,12 +1,13 @@
 import React from 'react';
 import { type StoryObj, type Meta } from '@storybook/react';
-import Form from '../';
+import Form from '..';
+import Input from '.';
 
 export default {
-  component: Form.Input,
+  component: Input,
   decorators: [(story) => <Form>{story()}</Form>],
-} as Meta<typeof Form.Input>;
+} as Meta<typeof Input>;
 
-export const Input: StoryObj<typeof Form.Input> = {
-  render: (args) => <Form.Input {...args} />,
+export const Default: StoryObj<typeof Input> = {
+  render: (args) => <Input {...args} />,
 };

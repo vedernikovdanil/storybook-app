@@ -22,14 +22,4 @@ body {
   padding: 0;
 }
 
-a {
-  @extend %clickable;
-
-  color: var(--link-clr);
-
-  &:hover {
-    text-decoration: none;
-  }
-}
-
 @debug 'styles compiled successfully';

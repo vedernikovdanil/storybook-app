@@ -14,13 +14,12 @@ function Link<As extends React.ElementType = 'a'>({
   disabled = false,
   ...props
 }: BaseProps<As, NavLinkProps>) {
-  if (disabled) {
-    props = { ...props, 'aria-disabled': disabled, tabIndex: -1 };
-  }
   return React.createElement(as, {
     className: cn('nav-link', active && 'active', className),
+    'aria-disabled': disabled,
+    tabIndex: disabled ? -1 : undefined,
     ...props,
-  });
+  } as Partial<BaseProps<'a', NavLinkProps>>);
 }
 
 export default Link;

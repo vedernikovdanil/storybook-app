@@ -6,12 +6,6 @@ import { Default as NavStory } from '@molecules/Nav/Nav.stories';
 
 const meta: Meta<typeof Navbar> = {
   component: Navbar,
-  subcomponents: {
-    Logo: Navbar.Logo,
-    Toggler: Navbar.Toggler,
-    Collapse: Navbar.Collapse,
-    Darkmode: Navbar.Darkmode,
-  } as Record<string, React.ComponentType<any>>,
 };
 
 export default meta;

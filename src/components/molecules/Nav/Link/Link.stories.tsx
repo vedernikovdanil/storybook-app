@@ -1,15 +1,15 @@
 import React from 'react';
 import { type StoryObj, type Meta } from '@storybook/react';
-import Nav from '../';
+import Link from '.';
 
-const meta: Meta<typeof Nav.Link> = {
-  component: Nav.Link,
+const meta: Meta<typeof Link> = {
+  component: Link,
 };
 
 export default meta;
 
-export const Link: StoryObj<typeof Nav.Link> = {
-  render: (args) => <Nav.Link {...args} />,
+export const Default: StoryObj<typeof Link> = {
+  render: (args) => <Link {...args} />,
 
   args: {
     children: 'Link',

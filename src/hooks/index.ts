@@ -1,3 +1,5 @@
-import useGetTextWidth from './useGetTextWidth';
+import useComputedStyle from './useComputedStyle';
+import useTextWidth from './useTextWidth';
+import useInnerWidth from './useInnerWidth';
 
-export { useGetTextWidth };
+export { useComputedStyle, useTextWidth, useInnerWidth };

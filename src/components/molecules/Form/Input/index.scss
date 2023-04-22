@@ -3,7 +3,7 @@
 %input {
   @extend %border-template;
 
-  min-width: clamp(0px, var(--width, fit-content), 100%);
+  min-width: clamp(var(--min-width, 0px), var(--width, 0px), 100%);
   height: $input-height;
   padding: 1rem;
 

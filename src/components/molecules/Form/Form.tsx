@@ -8,7 +8,7 @@ const Form = React.forwardRef<HTMLFormElement, FormProps>(function (
   { className, ...props },
   ref
 ) {
-  return <form className={cn('form', className)} ref={ref} {...props} />;
+  return <form ref={ref} className={cn('form', className)} {...props} />;
 });
 Form.displayName = 'Form';
 

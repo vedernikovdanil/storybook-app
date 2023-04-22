@@ -8,7 +8,7 @@ const Container = React.forwardRef<HTMLDivElement, ContainerProps>(function (
   { className, ...props },
   ref
 ) {
-  return <div className={cn('container', className)} ref={ref} {...props} />;
+  return <div ref={ref} className={cn('container', className)} {...props} />;
 });
 Container.displayName = 'Container';
 

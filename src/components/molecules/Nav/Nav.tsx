@@ -7,9 +7,7 @@ export interface NavListProps extends React.ComponentPropsWithoutRef<'ul'> {
 }
 
 function Nav({ className, tabs = false, ...props }: NavListProps) {
-  return (
-    <ul className={cn('nav', { 'nav-tabs': tabs }, className)} {...props} />
-  );
+  return <ul className={cn('nav', tabs && 'nav-tabs', className)} {...props} />;
 }
 
 export default Nav;

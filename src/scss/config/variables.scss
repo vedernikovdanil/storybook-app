@@ -15,8 +15,8 @@ $theme-colors: (
 );
 $util-colors: (
   link-clr: lch-create(55%, 50%, 250deg),
-  steam-clr: lch-create(100%, 0, 0, 50%),
-  smoke-clr: lch-create(0, 0, 0, 50%),
+  shadow-light-clr: lch-create(100%, 0, 0, 25%),
+  shadow-dark-clr: lch-create(0, 0, 0, 25%),
 );
 
 // modificators
@@ -40,5 +40,7 @@ $percents: (
 // properties
 $breakpoint: 768px;
 $border-radius: 0.5rem;
+$shadowed-focus-width: 5px;
 $input-height: 2rem;
 $floatinput-height: 2.75rem;
+$field-label-max-height: 200px;

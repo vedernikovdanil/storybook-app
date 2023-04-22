@@ -27,16 +27,16 @@
       background-color: var(--text-clr-half);
     }
 
-    .navbar-toggler:checked + & {
+    &.collapsed {
       max-height: var(--height, max-content);
     }
   }
+}
 
-  @at-root :has(&) .navbar-toggler {
-    display: none;
+%collapse-toggler {
+  display: none;
 
-    @media (width <= #{$breakpoint}) {
-      display: block;
-    }
+  @media (width <= #{$breakpoint}) {
+    display: block;
   }
 }

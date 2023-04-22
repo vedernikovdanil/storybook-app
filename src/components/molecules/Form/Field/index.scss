@@ -1,18 +1,21 @@
 @use '@scss/config' as *;
 
 %field {
-  display: grid;
-  grid-template-columns: auto 1fr;
-
-  > * {
-    display: inline-block;
-    vertical-align: top;
-  }
+  display: flex;
+  gap: 1rem;
 
   label {
-    width: 150px;
-    margin-right: 1rem;
+    max-width: $field-label-max-height;
     line-height: $input-height;
-    overflow-wrap: break-word;
+
+    & + * {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      gap: 1rem;
+      align-items: flex-start;
+
+      line-height: $input-height;
+    }
   }
 }
