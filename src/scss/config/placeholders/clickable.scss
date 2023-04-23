@@ -4,12 +4,10 @@
   // bg variables
   --bg-clr-hover: var(--bg-clr);
   --bg-clr-active: var(--bg-clr);
-  --bg-clr-disabled: var(--bg-clr);
 
   // text variables
   --text-clr-hover: var(--text-clr);
   --text-clr-active: var(--text-clr);
-  --text-clr-disabled: var(--text-clr);
 
   @include set-theme;
 
