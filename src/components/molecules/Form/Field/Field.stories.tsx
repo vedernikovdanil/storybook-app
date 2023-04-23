@@ -11,6 +11,7 @@ export default {
 
 const Template: StoryObj<typeof Field> = {
   render: (args) => <Field {...args} />,
+  play: InputStory.play,
 };
 
 export const Default: StoryObj<typeof Field> = {
@@ -19,6 +20,7 @@ export const Default: StoryObj<typeof Field> = {
     label: 'label',
     children: 'children',
   },
+  play: undefined,
 };
 
 export const WithInput: StoryObj<typeof Field> = {

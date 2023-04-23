@@ -7,6 +7,7 @@ $floatinput-height: 2.75rem;
 
   label {
     @extend %transition-base;
+    @extend %truncate;
 
     cursor: text;
 

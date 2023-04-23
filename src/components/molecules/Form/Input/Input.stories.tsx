@@ -2,6 +2,7 @@ import React from 'react';
 import { type StoryObj, type Meta } from '@storybook/react';
 import Form from '..';
 import Input from '.';
+import Test from './Input.test';
 
 export default {
   component: Input,
@@ -10,4 +11,5 @@ export default {
 
 export const Default: StoryObj<typeof Input> = {
   render: (args) => <Input {...args} />,
+  ...Test,
 };

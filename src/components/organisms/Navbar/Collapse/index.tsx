@@ -3,11 +3,12 @@ import cn from 'classnames';
 import { uniqueId } from 'lodash';
 import Toggler from '../Toggler';
 
-export interface NavbarCollapse extends React.ComponentPropsWithoutRef<'div'> {
+export interface NavbarCollapseProps
+  extends React.ComponentPropsWithoutRef<'div'> {
   onCollapse?: (isCollapse: boolean) => void;
 }
 
-function Collapse({ onCollapse, className, ...props }: NavbarCollapse) {
+function Collapse({ onCollapse, className, ...props }: NavbarCollapseProps) {
   const collapseId = React.useRef(uniqueId('navbar-collapse-'));
   const collapseRef = React.useRef<HTMLDivElement>(null);
 

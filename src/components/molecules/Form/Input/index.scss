@@ -3,7 +3,7 @@
 %input {
   @extend %border-template;
 
-  min-width: clamp(var(--min-width, 0px), var(--width, 0px), 100%);
+  min-width: clamp(0px, max(var(--label-width, 0px), var(--width, 0px)), 100%);
   height: 2rem;
   padding: 1rem;
 

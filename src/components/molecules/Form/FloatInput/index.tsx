@@ -21,7 +21,7 @@ const FloatInput = React.forwardRef<
   React.useEffect(() => {
     if (labelRef.current && inputRef.current) {
       const width = labelRef.current.clientWidth + (innerWidth ?? 0);
-      inputRef.current.style.setProperty('--min-width', `${width}px`);
+      inputRef.current.style.setProperty('--label-width', `${width}px`);
     }
   }, [labelRef.current, innerWidth]);
 

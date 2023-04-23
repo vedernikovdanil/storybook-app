@@ -2,6 +2,7 @@ import React from 'react';
 import { type StoryObj, type Meta } from '@storybook/react';
 import Form from '..';
 import FloatInput from '.';
+import Test from '../Input/Input.test';
 
 export default {
   component: FloatInput,
@@ -12,5 +13,7 @@ export const Default: StoryObj<typeof FloatInput> = {
   render: (args) => <FloatInput {...args} />,
   args: {
     label: 'Float label',
+    ...Test.args,
   },
+  play: Test.play,
 };

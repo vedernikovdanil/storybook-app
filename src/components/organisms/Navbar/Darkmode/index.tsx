@@ -7,11 +7,11 @@ const LIGHT_CLASS = 'bg-light';
 const getThemeName = (isDarkmode: boolean) =>
   isDarkmode ? DARK_CLASS : LIGHT_CLASS;
 
-interface NavbarDarkmodeProps {
+export interface NavbarDarkmodeProps {
   onChange?: (isDarkmode: boolean) => void;
 }
 
-function Darkmode({ onChange: onChangeProp }: NavbarDarkmodeProps) {
+function Darkmode({ onChange: onChangeProp, ...props }: NavbarDarkmodeProps) {
   const [isDarkmode, setIsDarkmode] = React.useState(
     () => localStorage.getItem(THEME_STORAGE_KEY) === 'true'
   );
@@ -36,6 +36,7 @@ function Darkmode({ onChange: onChangeProp }: NavbarDarkmodeProps) {
       className="navbar-darkmode"
       aria-label={'Darkmode toggler'}
       onClick={toggleIsDarkmode}
+      {...props}
     />
   );
 }

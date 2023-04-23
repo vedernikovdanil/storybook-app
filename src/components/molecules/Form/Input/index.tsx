@@ -31,7 +31,7 @@ const Input = React.forwardRef<HTMLInputElement | null, FormInputProps>(
         el.style.setProperty('--width', `${width}px`);
         el.classList.toggle('active', !!el.value);
       }
-    }, [inputRef.current, textWidth, innerWidth]);
+    }, [inputRef.current, value, textWidth, innerWidth]);
 
     React.useImperativeHandle(ref, () => inputRef.current as HTMLInputElement);
 

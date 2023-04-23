@@ -6,7 +6,9 @@ import {
   Default as FieldStory,
   WithInput as FieldStoryWithInput,
 } from '../Field/Field.stories';
+import { Default as InputStory } from '../Input/Input.stories';
 import { labels } from '../mocks';
+import Test from './FieldGroup.test';
 
 export default {
   component: FieldGroup,
@@ -15,11 +17,18 @@ export default {
 
 const Template: StoryObj<typeof FieldGroup> = {
   render: (args) => <FieldGroup {...args} />,
+  args: Test.args,
+  play: async (...args) => {
+    await Promise.all(
+      [Test, InputStory].map(async ({ play }) => await play?.apply({}, args))
+    );
+  },
 };
 
 export const Default: StoryObj<typeof FieldGroup> = {
   ...Template,
   args: {
+    ...Template.args,
     children: (
       <React.Fragment>
         {labels.map((_, index) => (
@@ -28,11 +37,13 @@ export const Default: StoryObj<typeof FieldGroup> = {
       </React.Fragment>
     ),
   },
+  play: Test.play,
 };
 
 export const WithInputs: StoryObj<typeof FieldGroup> = {
   ...Template,
   args: {
+    ...Template.args,
     children: (
       <React.Fragment>
         {labels
