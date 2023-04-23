@@ -1,0 +1,15 @@
+@use '../placeholders/clickable' as *;
+
+@mixin bg-clickable($hover: --bg-clr-light, $active: --bg-clr-dark) {
+  --bg-clr-hover: var(#{$hover});
+  --bg-clr-active: var(#{$active});
+
+  @extend %clickable;
+}
+
+@mixin text-clickable($hover: --text-clr-light, $active: --text-clr-dark) {
+  --text-clr-hover: var(#{$hover});
+  --text-clr-active: var(#{$active});
+
+  @extend %clickable;
+}

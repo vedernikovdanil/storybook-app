@@ -4,8 +4,9 @@
   --shadowed-focus: var(--bg-clr-half);
 
   @extend %bg-light;
-  @extend %clickable;
   @extend %shadowed-focus;
+
+  @include bg-clickable;
 
   cursor: pointer;
   padding: 0.5rem 1rem;

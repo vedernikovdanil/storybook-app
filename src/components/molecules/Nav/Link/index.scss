@@ -1,27 +1,23 @@
 @use '@scss/config' as *;
 
 %tabs {
-  background-color: var(--bg-clr-dark);
+  --bg-clr: var(--bg-clr-dark);
+
+  background-color: var(--bg-clr);
   border-radius: $border-radius;
 }
 
 %link {
-  --hover-clr: var(--bg-clr-darker);
-  --active-clr: var(--shadow-dark-clr);
-
   @extend %tabs;
-  @extend %clickable;
 
-  @include palette-replace(--link-clr, --text-clr);
+  @include bg-clickable(--bg-clr-darker, --shadow-clr);
 
   display: block;
   padding: 0.5rem 1rem;
+  color: inherit;
   text-decoration: none;
 
   &.active {
-    --hover-clr: var(--shadow-clr);
-    --active-clr: var(--bg-clr-darker);
-
     background-color: var(--bg-clr-darker);
   }
 }

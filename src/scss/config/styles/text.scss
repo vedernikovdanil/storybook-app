@@ -2,9 +2,10 @@
 @use '../functions' as *;
 @use '../variables' as *;
 
-@each $theme, $color in $theme-colors {
-  .text-#{$theme} {
-    $text: if(map.get($color, l) <= 60%, light, dark);
+@each $theme, $lch in $theme-colors {
+  .text-#{$theme},
+  %text-#{$theme} {
+    $text: if(map.get($lch, l) <= 60%, light, dark);
 
     @include palette_replace(--text-clr, --#{$theme});
 

@@ -1,16 +1,27 @@
+@use '../functions/colors/set-theme' as *;
+
 %clickable {
-  --hover-clr: var(--bg-clr-light);
-  --active-clr: var(--bg-clr-dark);
+  // bg variables
+  --bg-clr-hover: var(--bg-clr);
+  --bg-clr-active: var(--bg-clr);
+  --bg-clr-disabled: var(--bg-clr);
+
+  // text variables
+  --text-clr-hover: var(--text-clr);
+  --text-clr-active: var(--text-clr);
+  --text-clr-disabled: var(--text-clr);
+
+  @include set-theme;
 
   &:not([aria-disabled='true']) {
     cursor: pointer;
 
     &:hover {
-      background-color: var(--hover-clr);
+      @include set-theme(--text-clr-hover, --bg-clr-hover);
     }
 
     &:active {
-      background-color: var(--active-clr);
+      @include set-theme(--text-clr-active, --bg-clr-active);
     }
   }
 

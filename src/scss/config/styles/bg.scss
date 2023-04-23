@@ -2,8 +2,8 @@
 @use '../functions' as *;
 @use '../variables' as *;
 
-@each $theme, $color in $theme-colors {
-  $should-change: map.get($color, l) <= 60%;
+@each $theme, $lch in $theme-colors {
+  $should-change: map.get($lch, l) <= 60%;
   $light-or-dark: $theme == light or $theme == dark;
   $opposite: if($should-change, light, dark);
 
@@ -13,8 +13,7 @@
     @include palette_replace(--text-clr, --#{$opposite});
     @include palette_replace(--shadow-clr, --shadow-#{$opposite}-clr);
 
-    color: var(--text-clr);
-    background-color: var(--bg-clr);
+    @include set-theme;
   }
 
   .bg-#{$theme} .bg-#{$theme} {

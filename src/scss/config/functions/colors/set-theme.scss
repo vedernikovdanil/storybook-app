@@ -1,0 +1,4 @@
+@mixin set-theme($text: --text-clr, $bg: --bg-clr) {
+  color: var($text);
+  background-color: var($bg);
+}
