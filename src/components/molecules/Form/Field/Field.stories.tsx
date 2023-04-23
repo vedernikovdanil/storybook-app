@@ -29,7 +29,7 @@ export const WithInput: StoryObj<typeof Field> = {
   },
 };
 
-export const WithThreeInput: StoryObj<typeof Field> = {
+export const WithThreeInputs: StoryObj<typeof Field> = {
   ...Template,
   args: {
     label: 'Field label',

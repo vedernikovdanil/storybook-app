@@ -12,7 +12,6 @@ export default meta;
 
 export const Default: StoryObj<typeof Item> = {
   render: (args) => <Item {...args} />,
-
   args: {
     children: 'Item',
   },

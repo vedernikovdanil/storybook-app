@@ -10,7 +10,6 @@ export default meta;
 
 export const Default: StoryObj<typeof Logo> = {
   render: (args) => <Logo {...args} />,
-
   args: {
     children: 'Logo',
   },

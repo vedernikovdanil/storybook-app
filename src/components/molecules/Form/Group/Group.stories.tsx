@@ -10,7 +10,6 @@ export default {
 
 export const Default: StoryObj<typeof Group> = {
   render: (args) => <Group {...args} />,
-
   args: {
     legend: 'legend',
     children: 'children',

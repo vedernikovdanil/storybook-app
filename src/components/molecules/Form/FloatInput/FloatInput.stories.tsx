@@ -10,7 +10,6 @@ export default {
 
 export const Default: StoryObj<typeof FloatInput> = {
   render: (args) => <FloatInput {...args} />,
-
   args: {
     label: 'Float label',
   },

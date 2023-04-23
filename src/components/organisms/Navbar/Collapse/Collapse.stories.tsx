@@ -14,7 +14,6 @@ export default meta;
 
 export const Default: StoryObj<typeof Collapse> = {
   render: (args) => <Collapse {...args} />,
-
   args: {
     children: <Nav {...NavStory.args} />,
   },

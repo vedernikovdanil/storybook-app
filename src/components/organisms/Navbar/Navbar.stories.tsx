@@ -11,6 +11,7 @@ const meta: Meta<typeof Navbar> = {
 export default meta;
 
 export const Default: StoryObj<typeof Navbar> = {
+  render: (args) => <Navbar {...args} />,
   args: {
     children: (
       <React.Fragment>

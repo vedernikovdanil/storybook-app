@@ -9,6 +9,7 @@ const meta: Meta<typeof Container> = {
 export default meta;
 
 export const Default: StoryObj<typeof Container> = {
+  render: (args) => <Container {...args} />,
   args: {
     children: <div className="bg-primary p-2">{'children'}</div>,
     className: 'bg-success',

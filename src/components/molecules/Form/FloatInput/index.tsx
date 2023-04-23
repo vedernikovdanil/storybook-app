@@ -1,4 +1,4 @@
-import React, { type CSSProperties } from 'react';
+import React from 'react';
 import cn from 'classnames';
 import { uniqueId } from 'lodash';
 import Input, { type FormInputProps } from '../Input';
@@ -12,19 +12,16 @@ export interface FormFloatInputProps extends FormInputProps {
 const FloatInput = React.forwardRef<
   HTMLInputElement | null,
   FormFloatInputProps
->(function ({ label, labelProps, className, style, ...props }, ref) {
+>(function ({ label, labelProps, className, ...props }, ref) {
   const inputId = React.useRef(uniqueId('form-floatinput-'));
   const inputRef = React.useRef<HTMLInputElement>(null);
   const labelRef = React.useRef<HTMLLabelElement>(null);
-  const [labelWidth, setLabelWidth] = React.useState(0);
-  const innerWidth = useInnerWidth(inputRef);
+  const innerWidth = useInnerWidth(labelRef);
 
   React.useEffect(() => {
-    if (labelRef.current) {
+    if (labelRef.current && inputRef.current) {
       const width = labelRef.current.clientWidth + (innerWidth ?? 0);
-      if (labelWidth !== width) {
-        setLabelWidth(width);
-      }
+      inputRef.current.style.setProperty('--min-width', `${width}px`);
     }
   }, [labelRef.current, innerWidth]);
 
@@ -32,15 +29,10 @@ const FloatInput = React.forwardRef<
 
   return (
     <div className={cn('form-floatinput', className)}>
+      <Input ref={inputRef} id={inputId.current} {...props} />
       <label ref={labelRef} htmlFor={inputId.current} {...labelProps}>
         {label}
       </label>
-      <Input
-        ref={inputRef}
-        id={inputId.current}
-        style={{ '--min-width': `${labelWidth}px`, ...style } as CSSProperties}
-        {...props}
-      />
     </div>
   );
 });

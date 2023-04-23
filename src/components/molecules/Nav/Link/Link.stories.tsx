@@ -10,7 +10,6 @@ export default meta;
 
 export const Default: StoryObj<typeof Link> = {
   render: (args) => <Link {...args} />,
-
   args: {
     children: 'Link',
   },

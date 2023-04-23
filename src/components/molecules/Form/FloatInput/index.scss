@@ -1,5 +1,7 @@
 @use '@scss/config' as *;
 
+$floatinput-height: 2.75rem;
+
 %floatinput {
   position: relative;
 
@@ -10,7 +12,9 @@
 
     position: absolute;
     top: 1px;
-    left: 0.75rem;
+    left: 0;
+
+    padding: 0 0.75rem;
 
     line-height: $floatinput-height;
 
@@ -24,11 +28,12 @@
     &::placeholder {
       font-size: 0;
     }
-  }
 
-  &:has(input:focus, input.active) label {
-    font-size: 0.75rem;
-    line-height: 1.5rem;
-    color: var(--text-clr-half);
+    &:focus + label,
+    &.active + label {
+      font-size: 0.75rem;
+      line-height: 1.5rem;
+      color: var(--text-clr-half);
+    }
   }
 }
