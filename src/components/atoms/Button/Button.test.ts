@@ -1,35 +1,23 @@
-import { type StoryObj } from '@storybook/react';
-import type Button from '.';
-import { type ButtonProps } from '.';
-
 import { userEvent, within } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
 import Color from 'colorjs.io';
-import { getSelectorByElement } from '~/src/utils';
-import sleep from '~/src/utils/sleep';
+import type Button from '.';
+import { getSelectorByElement, sleep } from '~/src/utils';
+import { type PlayStoryObj } from '~/src/types';
 
-const Test: StoryObj<typeof Button> = {
-  args: {
-    children: 'Button',
-    'data-testid': 'button',
-  } as ButtonProps,
-
+const Test: PlayStoryObj<typeof Button> = {
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement);
-    const elements = canvas.getAllByTestId('button');
+    const elements = canvas.getAllByRole('button');
 
     for (let i = 0; i < elements.length; ++i) {
       const button = elements[i];
       const selector = getSelectorByElement(button);
 
-      // remove transition to fast test
-      const { transition } = window.getComputedStyle(button);
-      button.style.setProperty('transition', 'all 0s');
-
       await step(
         `Text and background must have sufficient color contrast [${selector}]`,
         () => {
-          const { backgroundColor, color } = window.getComputedStyle(button);
+          const { backgroundColor, color } = getComputedStyle(button);
 
           const bgColor = new Color(backgroundColor);
           const textColor = new Color(color);
@@ -40,12 +28,12 @@ const Test: StoryObj<typeof Button> = {
       );
 
       await step(
-        `Background and shadow colors must be different  [${selector}]`,
+        `Background and shadow colors must be different [${selector}]`,
         async () => {
           userEvent.click(button);
-          await sleep(50);
+          await sleep(500);
 
-          const styles = window.getComputedStyle(button);
+          const styles = getComputedStyle(button);
           const boxShadow = /(.*\(.*\)|.*)/g.exec(styles.boxShadow)?.[0] ?? '';
 
           const bgColor = new Color(styles.backgroundColor);
@@ -57,9 +45,6 @@ const Test: StoryObj<typeof Button> = {
           expect(contrast).not.toBe(0);
         }
       );
-
-      // restore transition style
-      button.style.setProperty('transition', transition);
     }
   },
 };

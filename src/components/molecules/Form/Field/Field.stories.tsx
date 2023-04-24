@@ -3,6 +3,7 @@ import { type StoryObj, type Meta } from '@storybook/react';
 import Form from '..';
 import Field from '.';
 import { Default as InputStory } from '../Input/Input.stories';
+import InputPlayStory from '../Input/Input.test';
 
 export default {
   component: Field,
@@ -11,7 +12,6 @@ export default {
 
 const Template: StoryObj<typeof Field> = {
   render: (args) => <Field {...args} />,
-  play: InputStory.play,
 };
 
 export const Default: StoryObj<typeof Field> = {
@@ -20,7 +20,6 @@ export const Default: StoryObj<typeof Field> = {
     label: 'label',
     children: 'children',
   },
-  play: undefined,
 };
 
 export const WithInput: StoryObj<typeof Field> = {
@@ -28,6 +27,9 @@ export const WithInput: StoryObj<typeof Field> = {
   args: {
     label: 'Field label',
     children: <Form.Input {...InputStory.args} />,
+  },
+  play: async (args) => {
+    await InputPlayStory(args as any);
   },
 };
 
@@ -42,5 +44,8 @@ export const WithThreeInputs: StoryObj<typeof Field> = {
         <Form.Input {...InputStory.args} />
       </React.Fragment>
     ),
+  },
+  play: async (args) => {
+    await InputPlayStory(args as any);
   },
 };

@@ -12,17 +12,26 @@ export default meta;
 
 export const Default: StoryObj<typeof Button> = {
   render: (args) => <Button {...args} />,
+  args: {
+    children: 'Button',
+  },
   ...Test,
 };
 
-export const AllButtons = {
+export const AllVariants = {
   render: () => (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
-      {themeColors.map((theme, index) => (
-        <Button key={index} {...Default.args} variant={theme} />
-      ))}
-    </div>
+    <table style={{ borderSpacing: '0.5rem' }}>
+      <tbody>
+        {themeColors.map((theme, index) => (
+          <tr key={index}>
+            <td>{theme}</td>
+            <td>
+              <Button {...Default.args} variant={theme} />
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   ),
   ...Test,
-  args: undefined,
 };

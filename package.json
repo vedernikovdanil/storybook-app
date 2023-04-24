@@ -17,8 +17,7 @@
     "stylelint:fix": "stylelint --fix **/*.scss",
     "eslint": "eslint .",
     "eslint:fix": "eslint --fix .",
-    "prettier": "prettier --write .",
-    "test:generate-output": "jest --json --outputFile=.jest-test-results.json"
+    "prettier": "prettier --write ."
   },
   "browserslist": {
     "production": [

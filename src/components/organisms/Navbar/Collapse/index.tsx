@@ -4,7 +4,7 @@ import { uniqueId } from 'lodash';
 import Toggler from '../Toggler';
 
 export interface NavbarCollapseProps
-  extends React.ComponentPropsWithoutRef<'div'> {
+  extends React.ComponentPropsWithoutRef<'section'> {
   onCollapse?: (isCollapse: boolean) => void;
 }
 
@@ -50,7 +50,7 @@ function Collapse({ onCollapse, className, ...props }: NavbarCollapseProps) {
         aria-controls={collapseId.current}
         aria-expanded={isCollapsed}
       />
-      <div
+      <section
         ref={collapseRef}
         id={collapseId.current}
         className={cn('navbar-collapse', isCollapsed && 'collapsed', className)}

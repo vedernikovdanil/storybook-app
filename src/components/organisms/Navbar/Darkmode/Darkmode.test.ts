@@ -1,20 +1,13 @@
-import { type StoryObj } from '@storybook/react';
 import type Darkmode from '.';
-import { type NavbarDarkmodeProps } from '.';
-
 import { userEvent, within } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
-import { getSelectorByElement } from '~/src/utils';
-import sleep from '~/src/utils/sleep';
+import { getSelectorByElement, sleep } from '~/src/utils';
+import { type PlayStoryObj } from '~/src/types';
 
-const Test: StoryObj<typeof Darkmode> = {
-  args: {
-    'data-testid': 'navbar-darkmode',
-  } as NavbarDarkmodeProps,
-
+const Test: PlayStoryObj<typeof Darkmode> = {
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement);
-    const darkmode = canvas.getByTestId('navbar-darkmode');
+    const darkmode = canvas.getByRole('button');
     const selector = getSelectorByElement(darkmode);
 
     await step(

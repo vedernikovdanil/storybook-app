@@ -1,20 +1,14 @@
-import { type StoryObj } from '@storybook/react';
 import type Input from '.';
-import { type FormInputProps } from '.';
-
 import { userEvent, within } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
 import { largeText } from '../mocks';
 import { getSelectorByElement } from '~/src/utils';
+import { type PlayStoryObj } from '~/src/types';
 
-const Test: StoryObj<typeof Input> = {
-  args: {
-    'data-testid': 'form-input',
-  } as FormInputProps,
-
+const PlayStory: PlayStoryObj<typeof Input> = {
   play: async ({ canvasElement, step }) => {
     const canvas = within(canvasElement);
-    const elements = canvas.getAllByTestId('form-input');
+    const elements = canvas.getAllByPlaceholderText(/.*/);
 
     for (let i = 0; i < elements.length; ++i) {
       const input = elements[i];
@@ -23,15 +17,18 @@ const Test: StoryObj<typeof Input> = {
       await step(
         `Width must be increase with text input [${selector}]`,
         async () => {
-          const { width: beforeWidth } = window.getComputedStyle(input);
+          const beforeWidth = parseFloat(getComputedStyle(input).width);
           await userEvent.type(input, largeText, { delay: 10 });
-          const { width: afterWidth } = window.getComputedStyle(input);
+          const afterWidth = parseFloat(getComputedStyle(input).width);
 
-          expect(parseFloat(beforeWidth)).toBeLessThan(parseFloat(afterWidth));
+          userEvent.clear(input);
+          input.blur();
+
+          expect(beforeWidth).toBeLessThan(afterWidth);
         }
       );
     }
   },
 };
 
-export default Test;
+export default PlayStory.play;

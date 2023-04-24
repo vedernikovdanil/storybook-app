@@ -2,7 +2,7 @@ import React, { type CSSProperties } from 'react';
 import cn from 'classnames';
 
 export interface FormFieldGroupProps
-  extends React.ComponentPropsWithoutRef<'div'> {
+  extends React.ComponentPropsWithoutRef<'fieldset'> {
   labelWidth?: number;
 }
 
@@ -18,7 +18,7 @@ function FieldGroup({
   } as CSSProperties;
 
   return (
-    <div
+    <fieldset
       className={cn('form-fieldgroup', className)}
       style={style}
       {...props}
