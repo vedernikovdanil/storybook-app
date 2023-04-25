@@ -6,8 +6,8 @@ import {
   Default as FieldStory,
   WithInput as FieldStoryWithInput,
 } from '../Field/Field.stories';
-import InputPlayStory from '../Input/Input.test';
-import PlayStory from './FieldGroup.test';
+import PlayInput from '../Input/Input.test';
+import PlayFieldGroup from './FieldGroup.test';
 import { labels } from '../mocks';
 
 export default {
@@ -30,7 +30,7 @@ export const Default: StoryObj<typeof FieldGroup> = {
       </React.Fragment>
     ),
   },
-  play: PlayStory,
+  play: PlayFieldGroup,
 };
 
 export const WithInputs: StoryObj<typeof FieldGroup> = {
@@ -51,7 +51,7 @@ export const WithInputs: StoryObj<typeof FieldGroup> = {
     ),
   },
   play: async (args) => {
-    await PlayStory(args);
-    await InputPlayStory(args as any);
+    await PlayFieldGroup(args);
+    await PlayInput(args as any);
   },
 };
