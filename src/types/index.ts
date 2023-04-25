@@ -30,6 +30,6 @@ export interface AsProp<As extends React.ElementType> {
   as?: As;
 }
 
-export type PlayStoryObj<Component extends React.FC> = Required<
-  Pick<StoryObj<Component>, 'play'>
->;
+export type PlayStory<Component extends React.FC> = Required<
+  StoryObj<Component>
+>['play'];

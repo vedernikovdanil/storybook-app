@@ -5,14 +5,14 @@
 @each $theme, $lch in $theme-colors {
   .text-#{$theme},
   %text-#{$theme} {
-    $text: if(map.get($lch, l) <= 60%, light, dark);
-
     @include palette_replace(--text-clr, --#{$theme});
 
     color: var(--text-clr);
+  }
 
-    .bg-#{$theme} {
-      @include palette_replace(--text-clr, --#{$text});
-    }
+  .bg-#{$theme} .text-#{$theme} {
+    $text: if(map.get($lch, l) <= $light-threshold, light, dark);
+
+    @include palette_replace(--text-clr, --#{$text});
   }
 }

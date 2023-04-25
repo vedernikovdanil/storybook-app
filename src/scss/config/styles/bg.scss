@@ -3,20 +3,19 @@
 @use '../variables' as *;
 
 @each $theme, $lch in $theme-colors {
-  $should-change: map.get($lch, l) <= 60%;
-  $light-or-dark: $theme == light or $theme == dark;
-  $opposite: if($should-change, light, dark);
+  $text: if(map.get($lch, l) <= $light-threshold, light, dark);
 
   .bg-#{$theme},
   %bg-#{$theme} {
     @include palette_replace(--bg-clr, --#{$theme});
-    @include palette_replace(--text-clr, --#{$opposite});
-    @include palette_replace(--shadow-clr, --shadow-#{$opposite}-clr);
+    @include palette_replace(--text-clr, --#{$text});
+    @include palette_replace(--shadow-clr, --shadow-#{$text}-clr);
 
     @include set-theme;
   }
 
   .bg-#{$theme} .bg-#{$theme} {
+    $light-or-dark: $theme == light or $theme == dark;
     $half-color: if($light-or-dark, shadow-clr, bg-clr-light);
 
     --bg-clr-half: var(--#{$half-color});

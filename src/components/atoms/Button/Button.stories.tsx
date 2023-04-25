@@ -2,7 +2,7 @@ import * as React from 'react';
 import { type StoryObj, type Meta } from '@storybook/react';
 import Button from '.';
 import { themeColors } from '~/src/mocks';
-import Test from './Button.test';
+import PlayButton from './Button.test';
 
 const meta: Meta<typeof Button> = {
   component: Button,
@@ -15,7 +15,7 @@ export const Default: StoryObj<typeof Button> = {
   args: {
     children: 'Button',
   },
-  ...Test,
+  play: PlayButton,
 };
 
 export const AllVariants = {
@@ -33,5 +33,5 @@ export const AllVariants = {
       </tbody>
     </table>
   ),
-  ...Test,
+  play: PlayButton,
 };
