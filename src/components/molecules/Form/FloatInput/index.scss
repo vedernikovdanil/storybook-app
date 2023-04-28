@@ -1,6 +1,7 @@
 @use '@scss/config' as *;
 
-$floatinput-height: 2.75rem;
+$floatinput-height: 3.5rem;
+$label-height: 1rem;
 
 %floatinput {
   position: relative;
@@ -12,19 +13,21 @@ $floatinput-height: 2.75rem;
     cursor: text;
 
     position: absolute;
-    top: 1px;
-    left: 0;
+    top: calc(($floatinput-height - $label-height) / 2);
+    left: 1rem;
 
-    padding: 0 0.75rem;
+    padding: 0 3px;
 
-    line-height: $floatinput-height;
+    line-height: $label-height;
 
-    transition-property: color, font-size, line-height;
+    background-color: var(--bg-clr);
+
+    transition-property: color, font-size, top;
   }
 
   input {
     height: $floatinput-height;
-    padding: 1.75rem 1rem 1rem;
+    font-size: 1rem;
 
     &::placeholder {
       font-size: 0;
@@ -32,8 +35,8 @@ $floatinput-height: 2.75rem;
 
     &:focus + label,
     &.active + label {
-      font-size: 0.75rem;
-      line-height: 1.5rem;
+      top: calc($label-height / -2);
+      font-size: 0.8rem;
       color: var(--text-clr-half);
     }
   }

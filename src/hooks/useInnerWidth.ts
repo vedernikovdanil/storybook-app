@@ -1,20 +1,22 @@
 import React from 'react';
-import useComputedStyle from './useComputedStyle';
 
 function useInnerWidth(ref: React.RefObject<HTMLElement>) {
-  const styles = useComputedStyle(ref);
+  const [innerWidth, setInnerWidth] = React.useState(0);
 
-  return React.useMemo(() => {
-    if (!styles) {
-      return null;
+  React.useEffect(() => {
+    if (!ref.current) {
+      return;
     }
-    const innerWidth =
+    const styles = getComputedStyle(ref.current);
+    const newInnerWidth =
       parseFloat(styles.paddingLeft) +
       parseFloat(styles.paddingRight) +
       parseFloat(styles.borderWidth) * 2;
 
-    return innerWidth;
-  }, [styles]);
+    setInnerWidth(newInnerWidth);
+  }, [ref.current]);
+
+  return innerWidth;
 }
 
 export default useInnerWidth;

@@ -16,7 +16,7 @@ const FloatInput = React.forwardRef<
   const inputId = React.useRef(uniqueId('form-floatinput-'));
   const inputRef = React.useRef<HTMLInputElement>(null);
   const labelRef = React.useRef<HTMLLabelElement>(null);
-  const innerWidth = useInnerWidth(labelRef);
+  const innerWidth = useInnerWidth(inputRef);
 
   React.useEffect(() => {
     if (labelRef.current && inputRef.current) {
