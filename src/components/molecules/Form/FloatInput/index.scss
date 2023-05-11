@@ -1,10 +1,10 @@
 @use '@scss/config' as *;
 @use '../Input' as *;
 
-$width: 237px;
-
 %floatinput {
   position: relative;
+  width: fit-content;
+  min-width: $min-width;
 
   label {
     @extend %transition-base;
@@ -15,7 +15,6 @@ $width: 237px;
     position: absolute;
     top: calc(($height - $font-size) / 2);
 
-    max-width: calc($width - $padding * 2);
     margin: 0 $padding;
     padding: 0 3px;
 
@@ -27,8 +26,6 @@ $width: 237px;
   }
 
   input {
-    width: $width;
-
     &::placeholder {
       font-size: 0;
     }
